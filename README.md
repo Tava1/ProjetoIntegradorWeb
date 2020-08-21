@@ -6,5 +6,5 @@ Repositório destinado ao 3º Projeto Integrador, Desenvolvimento de Sistemas Or
 
 - Gustavo Santos
 - Victor Pedrasani
-- Raquel Domingues
+- Raquel Domingos
 - Robson Junior
