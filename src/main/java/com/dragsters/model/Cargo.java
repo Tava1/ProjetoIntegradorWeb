@@ -13,4 +13,17 @@ import lombok.Setter;
 public class Cargo {
     private int cargoID;
     private String titulo;
+
+    public Cargo() {
+    }
+       
+    public Cargo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public Cargo(int cargoID, String titulo) {
+        this.cargoID = cargoID;
+        this.titulo = titulo;
+    }
+    
 }
