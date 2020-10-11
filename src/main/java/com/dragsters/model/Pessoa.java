@@ -5,16 +5,20 @@ package com.dragsters.model;
  * @author Gustavo Santos
  */
 
-import java.util.Date;
+import java.sql.Date;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class Pessoa {
+public abstract class Pessoa extends Endereco {
     private String nome;
     private String CPF;
     private String genero;
     private String email;
     private Date dataNascimento;
+
+    public Pessoa() {
+        super();
+    }
 }

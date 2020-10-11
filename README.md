@@ -8,4 +8,3 @@ Seguimento: Venda de Rodas, Pneus e freios de alta performance.
 - Gustavo C. Z. Santos
 - Victor H. A. Pedrasani
 - Raquel Domingos
-- Robson Junior
