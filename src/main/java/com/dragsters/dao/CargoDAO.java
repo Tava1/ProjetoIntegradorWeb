@@ -70,7 +70,71 @@ public class CargoDAO {
         return cargos;
     }
     
-    public static void atualizar() {
+    public static boolean atualizar(Cargo cargo) {
+        PreparedStatement ps = null;
+
+        try {
+            Connection conn = ConexaoDataBase.abrirConexao();
+            ps = conn.prepareStatement("UPDATE Cargo SET Titulo = ? WHERE CargoID = ?;");
+            
+            ps.setString(1, cargo.getTitulo());
+            
+            // WHERE
+            ps.setInt(2, cargo.getCargoID());
+            
+            int linhasAfetadas = ps.executeUpdate();
+            
+            if (linhasAfetadas <= 0) {
+                return false;
+            }
+        
+        } 
+        catch (Exception e) {
+            return false;
+        }
+        finally {
+            try {
+                if (ps != null) {
+                    ConexaoDataBase.fecharConexao();
+                }
+            } 
+            catch (Exception e) {
+            }
+        }
+        
+        return true;
+    }
     
+    public static boolean deletar(int cargoID) {
+
+        PreparedStatement ps = null;
+        
+        try {
+            Connection conn = ConexaoDataBase.abrirConexao();
+            ps = conn.prepareStatement("DELETE FROM Cargo WHERE CargoID = ?;");
+            
+            ps.setInt(1, cargoID);
+            
+            int linhasAfetadas = ps.executeUpdate();
+            
+            if (linhasAfetadas <= 0) {
+                return false;
+            }
+        
+        } 
+        catch (Exception e) {
+            return false;
+        }
+        finally {
+            try {
+                if (ps != null) {
+                    ConexaoDataBase.fecharConexao();
+                }
+            } 
+            catch (Exception e) {
+            }
+        }
+
+        return true;
     }
 }
