@@ -1,0 +1,50 @@
+#page-login {
+  background: var(--secondary-color);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper-login{
+  background: var(--primary-color-gradient);
+  width: 600px;
+  height: 455px;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper-login h1 {
+  color: var(--secondary-color);
+  font-size: 1.50em;
+}
+
+form input {
+  width: 220px;
+  height: 40px;
+  padding: 0 1em;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+input::placeholder {
+  color: var(--primary-color);
+  opacity: 0.5;
+}
+
+button {
+  width: 220px;
+  height: 40px;
+  background-color: var(--white-color);
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+input, button {
+  display: block;
+  margin: 1em 0;
+}
