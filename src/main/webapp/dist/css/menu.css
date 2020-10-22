@@ -1,0 +1,29 @@
+#page-menu {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#page-menu .menu-square {
+  background: #E1FBEF;
+  width: 600px;
+  height: 455px;
+  border-radius: 7px;
+}
+
+#page-menu .menu-square a .menu-item {
+  width: 150px;
+  height: 100px;
+  background-color: #7FC9A8;
+  margin: 5px;
+  border-radius: 7px;
+}
+/*# sourceMappingURL=menu.css.map */
