@@ -1,0 +1,36 @@
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+table thead {
+  background: #7FC9A8;
+  color: #FFFFFF;
+}
+
+table thead tr {
+  height: 50px;
+}
+
+table thead tr th {
+  font-weight: 400;
+}
+
+table thead tr th:first-child {
+  border-radius: 7px 0px 0px 0px;
+}
+
+table thead tr th:last-child {
+  border-radius: 0px 7px 0px 0px;
+}
+
+table tbody tr {
+  height: 40px;
+}
+
+table tbody tr:nth-of-type(odd) {
+  background-color: #FFFFFF;
+}
+/*# sourceMappingURL=table.css.map */

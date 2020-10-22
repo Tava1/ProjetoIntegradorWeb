@@ -1,0 +1,51 @@
+#page-products {
+  max-width: 1366px;
+  margin: 2em auto;
+}
+
+#page-products h1 {
+  color: #7FC9A8;
+  margin-bottom: 1em;
+}
+
+#page-products .filter {
+  background: #E1FBEF;
+  width: 100%;
+  padding: 1em 2em;
+  border-radius: 7px;
+}
+
+#page-products .filter form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#page-products .filter form .filter-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#page-products .filter form .filter-inputs * {
+  margin-right: 0.50em;
+}
+
+#page-products .result-table {
+  background: #E1FBEF;
+  width: 100%;
+  height: 600px;
+  margin-top: 1em;
+  border-radius: 7px;
+}
+
+.button-search {
+  width: 190px;
+  background: #7FC9A8;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+/*# sourceMappingURL=products.css.map */

@@ -1,0 +1,52 @@
+@import './variables.scss';
+
+#page-login {
+  background: $secondary-color;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .wrapper-login {
+    background: $primary-color-gradient;
+    width: 600px;
+    height: 455px;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h1 {
+    color: $secondary-color;
+    font-size: 1.50em;
+  }
+
+  form {
+    input {
+      width: 220px;
+      background: $secondary-color;
+      color: $primary-color;
+    } 
+
+    input::placeholder {
+      color: $primary-color;
+      opacity: 0.5;
+    }
+    
+    button {
+      width: 220px;
+      height: 40px;
+      background-color: $white-color;
+      color: $primary-color;
+      font-weight: 700;
+    }
+  }
+}
+
+input, button {
+  display: block;
+  margin: 1em 0;
+}

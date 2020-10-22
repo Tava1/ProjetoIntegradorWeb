@@ -1,0 +1,36 @@
+@import './variables.scss';
+
+table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+
+  thead {
+    background: $primary-color;
+    color: $white-color;
+  
+    tr {
+      height: 50px;
+    
+      th {
+        font-weight: 400;
+      }
+      th:first-child {
+        border-radius: 7px 0px 0px 0px;
+      }
+      th:last-child {
+        border-radius: 0px 7px 0px 0px;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      height: 40px;
+    }
+    tr:nth-of-type(odd) {
+      background-color: $white-color;
+    }
+  }
+}
