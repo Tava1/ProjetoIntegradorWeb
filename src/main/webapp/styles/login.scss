@@ -21,6 +21,7 @@
 
   h1 {
     color: $secondary-color;
+    margin-bottom: 10px;
     font-size: 1.50em;
   }
 
@@ -29,6 +30,7 @@
       width: 220px;
       background: $secondary-color;
       color: $primary-color;
+      margin-bottom: 10px;
     } 
 
     input::placeholder {

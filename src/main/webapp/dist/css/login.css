@@ -35,6 +35,7 @@
 
 #page-login h1 {
   color: #E1FBEF;
+  margin-bottom: 10px;
   font-size: 1.50em;
 }
 
@@ -42,6 +43,7 @@
   width: 220px;
   background: #E1FBEF;
   color: #7FC9A8;
+  margin-bottom: 10px;
 }
 
 #page-login form input::-webkit-input-placeholder {
