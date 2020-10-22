@@ -1,6 +1,6 @@
 #page-menu {
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14,16 +14,54 @@
 
 #page-menu .menu-square {
   background: #E1FBEF;
-  width: 600px;
-  height: 455px;
+  padding: 3em 4em;
   border-radius: 7px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #page-menu .menu-square a .menu-item {
-  width: 150px;
-  height: 100px;
+  width: 230px;
+  height: 190px;
   background-color: #7FC9A8;
-  margin: 5px;
   border-radius: 7px;
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#page-menu .menu-square a .menu-item i {
+  color: #FFFFFF;
+  font-size: 4em;
+}
+
+#page-menu .menu-square a .menu-item span {
+  color: #FFFFFF;
+  display: inline;
+  font-weight: 700;
+}
+
+#page-menu .menu-square a .menu-item:hover {
+  opacity: 0.7;
 }
 /*# sourceMappingURL=menu.css.map */
