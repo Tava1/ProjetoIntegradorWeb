@@ -7,7 +7,8 @@
 @import url('../dist/css/menu.css');
 @import url('../dist/css/products.css');
 @import url('../dist/css/table.css');
-
+@import url('../dist/css/menu.css');
+@import url('../dist/css/grid.css');
 
 * {
   margin: 0;
