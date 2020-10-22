@@ -4,6 +4,8 @@ import com.dragsters.dao.ClienteDAO;
 import com.dragsters.model.Cliente;
 import java.io.IOException;
 import java.sql.Date;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +23,12 @@ public class ClienteController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        List<Cliente> listaClientes = ClienteDAO.listar();
+        request.setAttribute("listaClientes", listaClientes);
+        
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/customers.jsp");
+        requestDispatcher.forward(request, response);
     }
 
     @Override
