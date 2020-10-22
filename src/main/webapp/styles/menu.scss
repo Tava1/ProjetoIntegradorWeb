@@ -1,0 +1,30 @@
+@import './variables.scss';
+
+#page-menu {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .menu-square {
+        background: $secondary-color;
+        width: 600px;
+        height: 455px;
+        border-radius: 7px;
+           
+        a {
+            .menu-item {
+                width: 150px;
+                height: 100px;
+                background-color: $primary-color;
+                margin: 5px;
+                border-radius: 7px;
+                
+            }
+        
+        }
+    }
+
+}
+
