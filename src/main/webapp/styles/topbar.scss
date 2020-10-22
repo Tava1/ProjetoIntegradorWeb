@@ -1,0 +1,51 @@
+@import './variables.scss';
+
+#topbar {
+  background-color: $primary-color;
+  padding: 0.5em 0;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1366px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    h1 {
+      color: $white-color;
+    }
+  }
+
+  .user-logged {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .user-avatar {
+    img {
+      background : $white-color;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid $primary-color;
+    }
+  } 
+
+  .user-information {
+    color: $white-color;
+    margin-right: 1em;
+
+    strong {
+      display: block;
+    }
+
+    span {
+      display: block;
+    }
+  }
+}

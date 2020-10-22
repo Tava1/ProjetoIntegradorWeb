@@ -1,0 +1,79 @@
+#page-login {
+  background: #E1FBEF;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#page-login .wrapper-login {
+  background: linear-gradient(132.23deg, #7FC9A8 23.72%, #559B7C 99.19%), #7FC9A8;
+  width: 600px;
+  height: 455px;
+  border-radius: 7px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#page-login h1 {
+  color: #E1FBEF;
+  font-size: 1.50em;
+}
+
+#page-login form input {
+  width: 220px;
+  background: #E1FBEF;
+  color: #7FC9A8;
+}
+
+#page-login form input::-webkit-input-placeholder {
+  color: #7FC9A8;
+  opacity: 0.5;
+}
+
+#page-login form input:-ms-input-placeholder {
+  color: #7FC9A8;
+  opacity: 0.5;
+}
+
+#page-login form input::-ms-input-placeholder {
+  color: #7FC9A8;
+  opacity: 0.5;
+}
+
+#page-login form input::placeholder {
+  color: #7FC9A8;
+  opacity: 0.5;
+}
+
+#page-login form button {
+  width: 220px;
+  height: 40px;
+  background-color: #FFFFFF;
+  color: #7FC9A8;
+  font-weight: 700;
+}
+
+input, button {
+  display: block;
+  margin: 1em 0;
+}
+/*# sourceMappingURL=login.css.map */

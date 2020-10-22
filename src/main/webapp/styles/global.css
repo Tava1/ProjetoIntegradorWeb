@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap');
 
-@import url('./grid.css');
-@import url('./navigation-bar.css');
+@import url('../dist/css/topbar.css');
+
+/* Pages */
+@import url('../dist/css/login.css');
+@import url('../dist/css/menu.css');
+@import url('../dist/css/products.css');
+@import url('../dist/css/table.css');
+
 
 * {
   margin: 0;
@@ -13,26 +19,24 @@ body {
   font-family: 'Montserrat';
 }
 
-input, textarea, button {
+input, textarea, button, select {
   font-family: 'Montserrat';
   outline: none;
   border-radius: 7px;
   border: none;
+  height: 48px;
+  padding: 0 1em;
   font-size: 1em;
+  margin: 0;
 }
 
 button {
   cursor: pointer;
 }
 
-:root {
-  --primary-color-gradient: linear-gradient(132.23deg, #7FC9A8 23.72%, #559B7C 99.19%), #7FC9A8;
-  --primary-color: #7FC9A8;
-  --secondary-color: #E1FBEF;
-  --primary-dark-color: #333333;
-  --secondary-dark-color: #474747;
-  --white-color: #FFFFFF;
-  --complementary-color: #F1CDD7;
-
+.wrapper {
+  max-width: 1366px;
+  margin: 0 auto;
 }
+
 

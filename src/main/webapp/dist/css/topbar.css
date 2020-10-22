@@ -1,0 +1,62 @@
+#topbar {
+  background-color: #7FC9A8;
+  padding: 0.5em 0;
+}
+
+#topbar .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 1366px;
+  margin: 0 auto;
+}
+
+#topbar .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#topbar .logo h1 {
+  color: #FFFFFF;
+}
+
+#topbar .user-logged {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#topbar .user-avatar img {
+  background: #FFFFFF;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid #7FC9A8;
+}
+
+#topbar .user-information {
+  color: #FFFFFF;
+  margin-right: 1em;
+}
+
+#topbar .user-information strong {
+  display: block;
+}
+
+#topbar .user-information span {
+  display: block;
+}
+/*# sourceMappingURL=topbar.css.map */
