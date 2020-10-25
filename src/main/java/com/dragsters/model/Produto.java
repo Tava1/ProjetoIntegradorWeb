@@ -16,7 +16,7 @@ public class Produto {
     private String modelo;
     private String descricao;
     private double precoUnitario;
-    private boolean ativo;
+    private int ativo;
     private int categoriaID;
     private int estoqueID;
     private int filialID;
