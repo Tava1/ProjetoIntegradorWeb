@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -66,7 +67,7 @@
 
             <tr>
               <td>${cliente.nome}</td>
-              <td>${cliente.cpf}</td>
+              <td>${cliente.CPF}</td>
               <td>${cliente.dataNascimento}</td>
               <td>${cliente.cidade}</td>
               <td>${cliente.estado}</td>

@@ -8,6 +8,22 @@
         <servlet-name>ClienteController</servlet-name>
         <servlet-class>com.dragsters.controllers.ClienteController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VendaController</servlet-name>
+        <servlet-class>com.dragsters.controllers.VendaController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConsultarClienteCPF</servlet-name>
+        <servlet-class>com.dragsters.controllers.ConsultarClienteCPF</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConsultarProdutoID</servlet-name>
+        <servlet-class>com.dragsters.controllers.ConsultarProdutoID</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProdutoController</servlet-name>
+        <servlet-class>com.dragsters.controllers.ProdutoController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CargoController</servlet-name>
         <url-pattern>/CargoController</url-pattern>
@@ -15,6 +31,22 @@
     <servlet-mapping>
         <servlet-name>ClienteController</servlet-name>
         <url-pattern>/ClienteController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendaController</servlet-name>
+        <url-pattern>/VendaController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConsultarClienteCPF</servlet-name>
+        <url-pattern>/ConsultarClienteCPF</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConsultarProdutoID</servlet-name>
+        <url-pattern>/ConsultarProdutoID</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProdutoController</servlet-name>
+        <url-pattern>/ProdutoController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

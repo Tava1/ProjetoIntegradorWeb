@@ -104,20 +104,20 @@ public class ClienteDAO {
     }
     
     // Listar clientes por CPF
-    public static List<Cliente> listarClientesCPF(String CPF) {
-        List<Cliente> clientes = new ArrayList<>();
+    public static Cliente listarClientesCPF(String CPF) {
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         
+        Cliente cliente = new Cliente();
+        
         try {
             Connection conn = ConexaoDataBase.abrirConexao();
-            ps = conn.prepareStatement("SELECT * FROM Cliente WHERE CPF LIKE '%?%';");
+            ps = conn.prepareStatement("SELECT * FROM Cliente WHERE CPF = ?;");
             ps.setString(1, CPF);
             
             resultSet = ps.executeQuery();
             
             while (resultSet.next()) {
-                Cliente cliente = new Cliente();
                 
                 cliente.setClienteID(resultSet.getInt("ClienteID"));
                 cliente.setNome(resultSet.getString("Nome"));
@@ -133,7 +133,7 @@ public class ClienteDAO {
                 cliente.setCidade(resultSet.getString("Cidade"));
                 cliente.setEstado(resultSet.getString("Estado"));
                 
-                clientes.add(cliente);
+                //clientes.add(cliente);
             }
         } 
         catch (Exception e) {
@@ -147,7 +147,7 @@ public class ClienteDAO {
             catch (Exception e) {
             }
         }
-        return clientes;
+        return cliente;
     }
     
     // Listar clientes pelo Nome 
