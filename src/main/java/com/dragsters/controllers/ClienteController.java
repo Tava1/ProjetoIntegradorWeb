@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ClienteController", urlPatterns = "/ClienteController")
 public class ClienteController extends HttpServlet {
 
+    // Lista todos os cliente cadastrados
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -27,28 +28,15 @@ public class ClienteController extends HttpServlet {
         List<Cliente> listaClientes = ClienteDAO.listar();
         
         request.setAttribute("listaClientes", listaClientes);
-        
+        request.setCharacterEncoding("UTF-8");
         RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/customers.jsp");
         requestDispatcher.forward(request, response);
     }
 
+    // Cria um novo cliente
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-//        String nome = request.getParameter("nome");
-//        String cpf = request.getParameter("cpf");
-//        String geneno = request.getParameter("genero");
-//        String estadoCivil = request.getParameter("estadoCivil");
-//        String email = request.getParameter("email");
-//        // TODO: Change to Date type
-//        Date dataNascimento = Date.valueOf(request.getParameter("dataNascimento"));
-//        String numeroContato = request.getParameter("numeroContato");
-//        String endereco = request.getParameter("endereco");
-//        String enderecoNumero = request.getParameter("enderecoNumero");
-//        String complemento = request.getParameter("complemento");
-//        String cidade = request.getParameter("cidade");
-//        String estado = request.getParameter("estado");
         
         Cliente cliente = new Cliente();
         
@@ -71,6 +59,33 @@ public class ClienteController extends HttpServlet {
         catch (Exception e) {
         }
     }
-
-
+    
+    // Atualiza um cliente especifico
+    @Override
+    protected void doPut(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        Cliente cliente = new Cliente();
+        
+        cliente.setClienteID(Integer.parseInt(request.getParameter("clienteID")));
+        cliente.setNome(request.getParameter("nome"));
+        cliente.setCPF(request.getParameter("cpf"));
+        cliente.setGenero(request.getParameter("genero"));
+        cliente.setEstadoCivil(request.getParameter("estadoCivil"));
+        cliente.setEmail(request.getParameter("email"));
+        cliente.setDataNascimento(Date.valueOf(request.getParameter("dataNascimento")));
+        cliente.setNumeroContato(request.getParameter("numeroContato"));
+        cliente.setEndereco(request.getParameter("endereco"));
+        cliente.setEnderecoNumero(request.getParameter("enderecoNumero"));
+        cliente.setComplemento(request.getParameter("complemento"));
+        cliente.setCidade(request.getParameter("cidade"));
+        cliente.setEstado(request.getParameter("estado"));
+        
+        try {
+            ClienteDAO.atualizar(cliente);
+        } 
+        catch (Exception e) {
+        }
+    }
+    
 }

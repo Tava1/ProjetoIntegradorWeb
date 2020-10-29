@@ -11,12 +11,14 @@
     margin: 0 auto;
   }
 
-  .logo {
-    display: flex;
-    align-items: center;
+  a {
+      display: flex;
+      align-items: center;
+    .logo {
 
-    h1 {
-      color: $white-color;
+      h1 {
+        color: $white-color;
+      }
     }
   }
 

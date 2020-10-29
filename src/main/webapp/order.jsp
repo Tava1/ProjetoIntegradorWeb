@@ -12,9 +12,11 @@
 <body>
   <header id="topbar">
     <div class="wrapper">
-      <div class="logo">
-        <h1>DRAGSTERS</h1>
-      </div>
+      <a href="/Dragsters/">
+        <div class="logo">
+          <h1>DRAGSTERS</h1>
+        </div>
+      </a>
 
       <div class="user-logged">
 
@@ -32,6 +34,11 @@
 
 
   <div id="page-order">
+
+    <h2>Venda</h2>
+    <span>Alguma descrição básica desta tela.</span>
+
+
     <!-- Buscar o cliente pelo CPF -->
     <form action="" method="get">
       <div class="">
@@ -64,6 +71,26 @@
         </tbody>
       </table>
     </div>
+
+    <!-- Carrinho de produtos -->
+
+    <div class="cart">
+      <table id="cart-table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Preço UN</th>
+            <th scope="col">Quantidade</th>
+          </tr>
+        </thead>
+        <tbody id="cart-details">
+        </tbody>
+      </table>
+    </div>
+
+    <button id="proceed-order" class="button-search">Finalizar</button>
+
   </div>
   <script src="https://kit.fontawesome.com/6d228377c9.js" crossorigin="anonymous"></script>
   <script src="./lib/jquery-3.5.1.js"></script>

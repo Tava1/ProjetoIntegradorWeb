@@ -17,4 +17,5 @@ public class Pedido {
     private int vendaConcluida;
     private int clienteID; 
     private int funcionarioID; 
+    private int unidadeID;
 }

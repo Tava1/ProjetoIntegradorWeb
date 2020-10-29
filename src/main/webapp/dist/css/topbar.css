@@ -14,7 +14,7 @@
   margin: 0 auto;
 }
 
-#topbar .logo {
+#topbar a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,7 +23,7 @@
           align-items: center;
 }
 
-#topbar .logo h1 {
+#topbar a .logo h1 {
   color: #FFFFFF;
 }
 

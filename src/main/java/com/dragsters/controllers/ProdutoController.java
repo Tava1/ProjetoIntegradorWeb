@@ -16,18 +16,20 @@ import com.dragsters.model.Produto;
  */
 public class ProdutoController extends HttpServlet {
 
+    // Lista todos os produtos cadastrados
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         List<Produto> listaProdutos = ProdutoDAO.listar();
         
-        request.setAttribute("listaProduto", listaProdutos);
-        
+        request.setAttribute("listaProdutos", listaProdutos);
+        response.setContentType("text/html;charset=UTF-8");
         RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/products.jsp");
         requestDispatcher.forward(request, response);
     }
 
+    // Cria um novo produto
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -40,11 +42,33 @@ public class ProdutoController extends HttpServlet {
         produto.setPrecoUnitario(Double.parseDouble(request.getParameter("precoUnitario")));
         produto.setAtivo(Integer.parseInt(request.getParameter("ativo")));
         produto.setCategoriaID(Integer.parseInt(request.getParameter("categoriaID")));
-        produto.setEstoqueID(Integer.parseInt(request.getParameter("estoqueID")));
-        produto.setFilialID(Integer.parseInt(request.getParameter("filialID")));
+        produto.setUnidadeID(Integer.parseInt(request.getParameter("unidadeID")));
         
         try {
             ProdutoDAO.criar(produto);
+        } 
+        catch (Exception e) {
+        }
+    }
+    
+    // Atualiza um produto especifico
+    @Override
+    protected void doPut(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        Produto produto = new Produto();
+        
+        produto.setProdutoID(Integer.parseInt(request.getParameter("produtoID")));
+        produto.setMarca(request.getParameter("marca"));
+        produto.setModelo(request.getParameter("modelo"));
+        produto.setDescricao(request.getParameter("descricao"));
+        produto.setPrecoUnitario(Double.parseDouble(request.getParameter("precoUnitario")));
+        produto.setAtivo(Integer.parseInt(request.getParameter("ativo")));
+        produto.setCategoriaID(Integer.parseInt(request.getParameter("categoriaID")));
+        produto.setUnidadeID(Integer.parseInt(request.getParameter("unidadeID")));
+        
+        try {
+            ProdutoDAO.atualizar(produto);
         } 
         catch (Exception e) {
         }

@@ -1,11 +1,20 @@
-##CREATE DATABASE dragsters;
-##USE dragsters;
-##DROP DATABASE dragsters;
+DROP DATABASE IF EXISTS dragsters;
+CREATE DATABASE IF NOT EXISTS dragsters;
+USE dragsters;
+
+CREATE TABLE Unidade (
+UnidadeID INT PRIMARY KEY AUTO_INCREMENT,
+Endereco VARCHAR(60) NOT NULL,
+EnderecoNumero VARCHAR(8) NOT NULL,
+Cidade VARCHAR(40) NOT NULL,
+Estado CHAR(2) NOT NULL,
+Titulo VARCHAR(20) NOT NULL
+);
 
 CREATE TABLE Cliente (
 ClienteID INT PRIMARY KEY AUTO_INCREMENT,
 Nome VARCHAR(60) NOT NULL,
-CPF CHAR(11) NOT NULL,
+CPF CHAR(11) UNIQUE NOT NULL,
 Genero CHAR(1) NOT NULL,
 EstadoCivil CHAR(1) NOT NULL,
 Email VARCHAR(60) NOT NULL,
@@ -26,32 +35,21 @@ Titulo VARCHAR(20) NOT NULL
 CREATE TABLE Funcionario (
 FuncionarioID INT PRIMARY KEY AUTO_INCREMENT,
 Nome VARCHAR(60) NOT NULL,
-CPF CHAR(11) NOT NULL,
+CPF CHAR(11) UNIQUE NOT NULL,
 Genero CHAR(1) NOT NULL,
 Email VARCHAR(60) NOT NULL,
 DataNascimento DATE NOT NULL,
 Senha VARCHAR(60),
 Ativo BINARY NOT NULL,
 CargoID INT NOT NULL,
-FOREIGN KEY (CargoID) REFERENCES Cargo (CargoID)
-);
-
-CREATE TABLE Estoque (
-EstoqueID INT PRIMARY KEY AUTO_INCREMENT,
-Quantidade LONG NOT NULL
+UnidadeID INT NOT NULL,
+FOREIGN KEY (CargoID) REFERENCES Cargo (CargoID),
+FOREIGN KEY (UnidadeID) REFERENCES Unidade (UnidadeID)
 );
 
 CREATE TABLE Categoria (
 CategoriaID INT PRIMARY KEY AUTO_INCREMENT,
 Titulo VARCHAR(20) NOT NULL
-);
-
-CREATE TABLE Filial (
-FilialID INT PRIMARY KEY AUTO_INCREMENT,
-Endereco VARCHAR(60) NOT NULL,
-EnderecoNumero VARCHAR(8) NOT NULL,
-Cidade VARCHAR(40) NOT NULL,
-Estado CHAR(2) NOT NULL
 );
 
 CREATE TABLE Produto (
@@ -62,11 +60,16 @@ Descricao VARCHAR(500),
 PrecoUnitario DECIMAL(10,2) NOT NULL,
 Ativo BINARY NOT NULL,
 CategoriaID INT NOT NULL,
-EstoqueID INT NOT NULL,
-FilialID INT NOT NULL,
+UnidadeID INT NOT NULL,
 FOREIGN KEY (CategoriaID) REFERENCES Categoria (CategoriaID),
-FOREIGN KEY (EstoqueID) REFERENCES Estoque (EstoqueID),
-FOREIGN KEY (FilialID) REFERENCES Filial (FilialID)
+FOREIGN KEY (UnidadeID) REFERENCES Unidade (UnidadeID)
+);
+
+CREATE TABLE Estoque (
+EstoqueID INT PRIMARY KEY AUTO_INCREMENT,
+Quantidade LONG NOT NULL,
+ProdutoID INT NOT NULL,
+FOREIGN KEY (ProdutoID) REFERENCES Produto (ProdutoID)
 );
 
 ##Venda
@@ -74,10 +77,13 @@ CREATE TABLE Pedido (
 PedidoID INT PRIMARY KEY AUTO_INCREMENT,
 Total DECIMAL(10, 2) NOT NULL,
 DataPedido DATETIME NOT NULL,
+VendaConcluida INT NOT NULL,
 ClienteID INT NOT NULL, 
 FuncionarioID INT NOT NULL,
+UnidadeID INT NOT NULL,
 FOREIGN KEY (ClienteID) REFERENCES Cliente (ClienteID),
-FOREIGN KEY (FuncionarioID) REFERENCES Funcionario (FuncionarioID)
+FOREIGN KEY (FuncionarioID) REFERENCES Funcionario (FuncionarioID),
+FOREIGN KEY (UnidadeID) REFERENCES Unidade (UnidadeID)
 );
 
 CREATE TABLE ItemPedido (
@@ -88,3 +94,31 @@ ProdutoID INT NOT NULL,
 FOREIGN KEY (PedidoID) REFERENCES Pedido (PedidoID),
 FOREIGN KEY (ProdutoID) REFERENCES Produto (ProdutoID)
 );
+
+-- INSERT INTO Cargo(Titulo) VALUES
+-- ('Diretoria'),
+-- ('Produtos Global'),
+-- ('Marketing Global')
+-- ('Vendas Global'),
+-- ('TI Global'),
+
+
+INSERT INTO Categoria(Titulo) VALUES
+('Supensão'),
+('Rodas'),
+('Pneus'),
+('Freios'),
+('Lubrificantes');
+
+INSERT INTO Unidade(Endereco, EnderecoNumero, Cidade, Estado, Titulo) VALUES
+('Av. Nove de Julho','423','São Paulo', 'SP', 'Matriz'),
+('Av. Governador Raul Barbosa','4567','Campina Grande', 'PA', 'Filial'),
+('R. Max Lepper','128','Joinville', 'SC', 'Filial'),
+('Via W3 Sul','469','Brasília', 'DF', 'Filial'),
+('Av. Pres. Tancredo Neves','2001','Belo Horizonte', 'MG', 'Filial'),
+('Av. Recife','378','Recife', 'PE', 'Filial');
+
+INSERT INTO Produto(Marca, Modelo, Descricao, PrecoUnitario, Ativo, CategoriaID, UnidadeID) VALUES 
+('Bridgestone', '195/55R15 85H EP150 ECOPIA BRIDGESTONE', 'Os pneus Bridgestone EP150 foram desenvolvidos para veículos de tamanho intermediário e são modelos fabricados com composto que provê baixa resistência ao rolamento, traduzindo em muito mais economia, pois além de auxiliar na redução do consumo de combustível, também tem maior durabilidade e vida útil.', 329.00, 1, 3, 1),
+('MOMO', 'RODA REVENGE MOMO ARO 19X8,5 5X120 ET 35', 'Preta Fosca', 1099.00, 1, 2, 1),
+('MOMO', 'RODA STEALTH MOMO ARO 20X8,5 5X112 ET 45', 'GRAFITE FOSCA DIAMANTADA', 1199.00, 1, 2, 1);

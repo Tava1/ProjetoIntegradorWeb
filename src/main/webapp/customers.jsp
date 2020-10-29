@@ -16,9 +16,11 @@
 <body>
   <header id="topbar">
     <div class="wrapper">
-      <div class="logo">
-        <h1>DRAGSTERS</h1>
-      </div>
+      <a href="/Dragsters/">
+        <div class="logo">
+          <h1>DRAGSTERS</h1>
+        </div>
+      </a>
 
       <div class="user-logged">
 
