@@ -18,6 +18,5 @@ public class Produto {
     private double precoUnitario;
     private int ativo;
     private int categoriaID;
-    private int estoqueID;
-    private int filialID;
+    private int unidadeID;
 }
