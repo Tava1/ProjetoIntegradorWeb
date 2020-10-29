@@ -1,8 +1,10 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 
 <head>
-  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/global.css">
   <title>Listar Produtos</title>
@@ -11,9 +13,11 @@
 <body>
   <header id="topbar">
     <div class="wrapper">
-      <div class="logo">
-        <h1>DRAGSTERS</h1>
-      </div>
+      <a href="/Dragsters/">
+        <div class="logo">
+          <h1>DRAGSTERS</h1>
+        </div>
+      </a>
 
       <div class="user-logged">
 
@@ -31,7 +35,7 @@
 
 
   <div id="page-products">
-    <h1>Manutenção de produtos</h1>
+    <h1>ManutenÃ§Ã£o de produtos</h1>
     <div class="filter">
       <form>
         <div class="filter-inputs">
@@ -61,42 +65,18 @@
         </thead>
 
         <tbody>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-            <td>@fat</td>
-          </tr>
+
+          <c:forEach var="produto" items="${listaProdutos}">
+            <tr>
+              <th scope="row">${produto.produtoID}</th>
+              <td>${produto.marca}</td>
+              <td>${produto.modelo}</td>
+              <td>${produto.descricao}</td>
+              <td>${produto.precoUnitario}</td>
+              <td>${produto.categoriaID}</td>
+            </tr>
+
+          </c:forEach>
         </tbody>
       </table>
 

@@ -17,7 +17,7 @@ public class ProdutoDAO {
         
         try {
             Connection conn = ConexaoDataBase.abrirConexao();
-            ps = conn.prepareStatement("INSERT INTO Produto (Marca, Modelo, Descricao, PrecoUnitario, Ativo, CategoriaID, EstoqueID, FilialID) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
+            ps = conn.prepareStatement("INSERT INTO Produto (Marca, Modelo, Descricao, PrecoUnitario, Ativo, CategoriaID, UnidadeID) VALUES (?, ?, ?, ?, ?, ?, ?);");
             
             ps.setString(1, produto.getMarca());
             ps.setString(2, produto.getModelo());
@@ -25,8 +25,7 @@ public class ProdutoDAO {
             ps.setDouble(4, produto.getPrecoUnitario());
             ps.setInt(5, produto.getAtivo());
             ps.setInt(6, produto.getCategoriaID());
-            ps.setInt(7, produto.getEstoqueID());
-            ps.setInt(8, produto.getFilialID());
+            ps.setInt(7, produto.getUnidadeID());
             
             int linhasAfetadas = ps.executeUpdate();
             
@@ -72,8 +71,7 @@ public class ProdutoDAO {
                 produto.setPrecoUnitario(resultSet.getDouble("PrecoUnitario"));
                 produto.setAtivo(resultSet.getInt("Ativo"));
                 produto.setCategoriaID(resultSet.getInt("CategoriaID"));
-                produto.setEstoqueID(resultSet.getInt("EstoqueID"));
-                produto.setFilialID(resultSet.getInt("FilialID"));
+                produto.setUnidadeID(resultSet.getInt("UnidadeID"));
 
                 produtos.add(produto);
             }
@@ -115,8 +113,7 @@ public class ProdutoDAO {
                 produto.setPrecoUnitario(resultSet.getDouble("PrecoUnitario"));
                 produto.setAtivo(resultSet.getInt("Ativo"));
                 produto.setCategoriaID(resultSet.getInt("CategoriaID"));
-                produto.setEstoqueID(resultSet.getInt("EstoqueID"));
-                produto.setFilialID(resultSet.getInt("FilialID"));
+                produto.setUnidadeID(resultSet.getInt("UnidadeID"));
 
                 produtos.add(produto);
             }
@@ -158,8 +155,7 @@ public class ProdutoDAO {
                 produto.setPrecoUnitario(resultSet.getDouble("PrecoUnitario"));
                 produto.setAtivo(resultSet.getInt("Ativo"));
                 produto.setCategoriaID(resultSet.getInt("CategoriaID"));
-                produto.setEstoqueID(resultSet.getInt("EstoqueID"));
-                produto.setFilialID(resultSet.getInt("FilialID"));
+                produto.setUnidadeID(resultSet.getInt("UnidadeID"));
 
                 produtos.add(produto);
             }
@@ -200,8 +196,7 @@ public class ProdutoDAO {
                 produto.setPrecoUnitario(resultSet.getDouble("PrecoUnitario"));
                 produto.setAtivo(resultSet.getInt("Ativo"));
                 produto.setCategoriaID(resultSet.getInt("CategoriaID"));
-                produto.setEstoqueID(resultSet.getInt("EstoqueID"));
-                produto.setFilialID(resultSet.getInt("FilialID"));
+                produto.setUnidadeID(resultSet.getInt("UnidadeID"));
             }
         } 
         catch (Exception e) {
@@ -224,7 +219,7 @@ public class ProdutoDAO {
 
         try {
             Connection conn = ConexaoDataBase.abrirConexao();
-            ps = conn.prepareStatement("UPDATE Produto SET Marca = ?, Modelo = ?, Descricao = ?, PrecoUnitario = ?, Ativo = ?, CategoriaID = ?, EstoqueID = ?, FilialID = ? WHERE ProdutoID = ?;");
+            ps = conn.prepareStatement("UPDATE Produto SET Marca = ?, Modelo = ?, Descricao = ?, PrecoUnitario = ?, Ativo = ?, CategoriaID = ?, UnidadeID = ? WHERE ProdutoID = ?;");
             
             ps.setString(1, produto.getMarca());
             ps.setString(2, produto.getModelo());
@@ -232,8 +227,7 @@ public class ProdutoDAO {
             ps.setDouble(4, produto.getPrecoUnitario());
             ps.setInt(5, produto.getAtivo());
             ps.setInt(6, produto.getCategoriaID());
-            ps.setInt(7, produto.getEstoqueID());
-            ps.setInt(8, produto.getFilialID());
+            ps.setInt(8, produto.getUnidadeID());
 
             // WHERE
             ps.setInt(9, produto.getProdutoID());
