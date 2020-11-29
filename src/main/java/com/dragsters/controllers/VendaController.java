@@ -5,7 +5,6 @@ import com.dragsters.dao.PedidoDAO;
 import com.dragsters.model.Cliente;
 import com.dragsters.model.ItemPedido;
 import com.dragsters.model.Pedido;
-import com.dragsters.model.Produto;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
@@ -20,12 +19,14 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class VendaController extends HttpServlet {
 
+    private ClienteDAO clienteDAO = new ClienteDAO();
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         request.setCharacterEncoding("UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/order.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/order.jsp");
         requestDispatcher.forward(request, response);
     }
 
@@ -35,7 +36,7 @@ public class VendaController extends HttpServlet {
         
         // Cliente
         String CPF = request.getParameter("cpf");
-        Cliente cliente = ClienteDAO.listarClientesCPF(CPF);
+        Cliente cliente = clienteDAO.listarClientesCPF(CPF);
         
         
         ArrayList<ItemPedido> listaItensPedido = new ArrayList<>();

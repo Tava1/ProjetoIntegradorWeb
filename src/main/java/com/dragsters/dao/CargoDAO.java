@@ -7,13 +7,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import com.dragsters.interfaces.IDAO;
 
 /**
  *
  * @author Gustavo Santos
  */
-public class CargoDAO {
-    public static boolean criar(Cargo cargo) throws SQLException, ClassNotFoundException {
+public class CargoDAO implements IDAO<Cargo> {
+   
+    @Override
+    public boolean criar(Cargo cargo) {
         PreparedStatement ps = null;
         
         try {
@@ -44,7 +47,8 @@ public class CargoDAO {
         }
     }
     
-    public static ArrayList<Cargo> listar() {
+    @Override
+    public ArrayList<Cargo> listar() {
         ArrayList<Cargo> cargos = new ArrayList<Cargo>();
         PreparedStatement ps = null; 
         ResultSet resultSet = null;
@@ -70,7 +74,8 @@ public class CargoDAO {
         return cargos;
     }
     
-    public static boolean atualizar(Cargo cargo) {
+    @Override
+    public boolean atualizar(Cargo cargo) {
         PreparedStatement ps = null;
 
         try {
@@ -105,7 +110,8 @@ public class CargoDAO {
         return true;
     }
     
-    public static boolean deletar(int cargoID) {
+    @Override
+    public boolean deletar(int cargoID) {
 
         PreparedStatement ps = null;
         

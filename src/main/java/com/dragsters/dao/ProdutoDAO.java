@@ -1,18 +1,20 @@
 package com.dragsters.dao;
 
+import com.dragsters.interfaces.IDAO;
 import com.dragsters.utils.ConexaoDataBase;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import com.dragsters.model.Produto;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Gustavo Santos
  */
-public class ProdutoDAO {
-    public static boolean criar(Produto produto) {
+public class ProdutoDAO implements IDAO<Produto>{
+    
+    @Override
+    public boolean criar(Produto produto) {
         PreparedStatement ps = null;
         
         try {
@@ -50,8 +52,8 @@ public class ProdutoDAO {
     }
     
     // Listar todos os funcionarios ativos no sistema
-    public static List<Produto> listarAtivos() {
-        List<Produto> produtos = new ArrayList<>();
+    public ArrayList<Produto> listarAtivos() {
+        ArrayList<Produto> produtos = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         
@@ -92,8 +94,8 @@ public class ProdutoDAO {
     }
     
     // Listar todos os produtos inativos no sistema
-    public static List<Produto> listarInativos() {
-        List<Produto> produtos = new ArrayList<>();
+    public ArrayList<Produto> listarInativos() {
+        ArrayList<Produto> produtos = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         
@@ -134,8 +136,9 @@ public class ProdutoDAO {
     }
    
     // Listar todos os produtos
-    public static List<Produto> listar() {
-        List<Produto> produtos = new ArrayList<>();
+    @Override
+    public ArrayList<Produto> listar() {
+        ArrayList<Produto> produtos = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         
@@ -176,7 +179,7 @@ public class ProdutoDAO {
     }
     
     // Buscar produto pelo ID
-    public static Produto buscarProduto(int produtoID) {
+    public Produto buscarProduto(int produtoID) {
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         Produto produto = new Produto();
@@ -214,7 +217,8 @@ public class ProdutoDAO {
         return produto;
     }
     
-    public static boolean atualizar(Produto produto) {
+    @Override
+    public boolean atualizar(Produto produto) {
         PreparedStatement ps = null;
 
         try {
@@ -255,7 +259,8 @@ public class ProdutoDAO {
         return true;
     }
     
-    public static boolean deletar(int produtoID) {
+    @Override
+    public boolean deletar(int produtoID) {
 
         PreparedStatement ps = null;
         

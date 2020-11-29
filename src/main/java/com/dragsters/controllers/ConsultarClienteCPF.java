@@ -16,13 +16,15 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ConsultarClienteCPF", urlPatterns = "/ConsultarClienteCPF")
 public class ConsultarClienteCPF extends HttpServlet {
 
+    private ClienteDAO clienteDAO = new ClienteDAO();
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         String CPF = request.getParameter("cpf");
         
-        Cliente cliente = ClienteDAO.listarClientesCPF(CPF);
+        Cliente cliente = clienteDAO.listarClientesCPF(CPF);
         
         request.setAttribute("cliente", cliente);
 
