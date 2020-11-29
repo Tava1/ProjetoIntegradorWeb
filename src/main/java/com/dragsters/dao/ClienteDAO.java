@@ -1,19 +1,20 @@
 package com.dragsters.dao;
 
+import com.dragsters.interfaces.IDAO;
 import com.dragsters.model.Cliente;
 import com.dragsters.utils.ConexaoDataBase;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author Gustavo Santos
  */
-public class ClienteDAO {
-    public static boolean criar(Cliente cliente) {
+public class ClienteDAO implements IDAO<Cliente>{
+    @Override
+    public boolean criar(Cliente cliente) {
         PreparedStatement ps = null;
         
         try {
@@ -56,9 +57,9 @@ public class ClienteDAO {
         return true;
     }
     
-    // Listar todos os clientes
-    public static List<Cliente> listar() {
-        List<Cliente> clientes = new ArrayList<>();
+    @Override
+    public ArrayList<Cliente> listar() {
+        ArrayList<Cliente> clientes = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         
@@ -104,7 +105,7 @@ public class ClienteDAO {
     }
     
     // Listar clientes por CPF
-    public static Cliente listarClientesCPF(String CPF) {
+    public Cliente listarClientesCPF(String CPF) {
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         
@@ -151,8 +152,8 @@ public class ClienteDAO {
     }
     
     // Listar clientes pelo Nome 
-    public static List<Cliente> listarClientesNome(String nome) {
-        List<Cliente> clientes = new ArrayList<>();
+    public ArrayList<Cliente> listarClientesNome(String nome) {
+        ArrayList<Cliente> clientes = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         
@@ -199,7 +200,8 @@ public class ClienteDAO {
         return clientes;
     }
 
-    public static boolean atualizar(Cliente cliente) {
+    @Override
+    public boolean atualizar(Cliente cliente) {
         PreparedStatement ps = null;
 
         try {
@@ -244,7 +246,8 @@ public class ClienteDAO {
         return true;
     }
     
-    public static boolean deletar(int clienteID) {
+    @Override
+    public boolean deletar(int clienteID) {
 
         PreparedStatement ps = null;
         

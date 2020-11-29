@@ -16,16 +16,18 @@ import com.dragsters.model.Produto;
  */
 public class ProdutoController extends HttpServlet {
 
+    private ProdutoDAO produtoDAO = new ProdutoDAO();
+    
     // Lista todos os produtos cadastrados
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        List<Produto> listaProdutos = ProdutoDAO.listar();
+        List<Produto> listaProdutos = produtoDAO.listar();
         
         request.setAttribute("listaProdutos", listaProdutos);
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/products.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/products.jsp");
         requestDispatcher.forward(request, response);
     }
 
@@ -45,7 +47,7 @@ public class ProdutoController extends HttpServlet {
         produto.setUnidadeID(Integer.parseInt(request.getParameter("unidadeID")));
         
         try {
-            ProdutoDAO.criar(produto);
+            produtoDAO.criar(produto);
         } 
         catch (Exception e) {
         }
@@ -68,7 +70,7 @@ public class ProdutoController extends HttpServlet {
         produto.setUnidadeID(Integer.parseInt(request.getParameter("unidadeID")));
         
         try {
-            ProdutoDAO.atualizar(produto);
+            produtoDAO.atualizar(produto);
         } 
         catch (Exception e) {
         }

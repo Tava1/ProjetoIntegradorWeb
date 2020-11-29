@@ -20,16 +20,18 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ClienteController", urlPatterns = "/ClienteController")
 public class ClienteController extends HttpServlet {
 
+    private ClienteDAO clienteDAO = new ClienteDAO();
+    
     // Lista todos os cliente cadastrados
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        List<Cliente> listaClientes = ClienteDAO.listar();
+        List<Cliente> listaClientes = clienteDAO.listar();
         
         request.setAttribute("listaClientes", listaClientes);
         request.setCharacterEncoding("UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/customers.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/customers.jsp");
         requestDispatcher.forward(request, response);
     }
 
@@ -54,7 +56,7 @@ public class ClienteController extends HttpServlet {
         cliente.setEstado(request.getParameter("estado"));
         
         try {
-            ClienteDAO.criar(cliente);
+            clienteDAO.criar(cliente);
         } 
         catch (Exception e) {
         }
@@ -82,7 +84,7 @@ public class ClienteController extends HttpServlet {
         cliente.setEstado(request.getParameter("estado"));
         
         try {
-            ClienteDAO.atualizar(cliente);
+            clienteDAO.atualizar(cliente);
         } 
         catch (Exception e) {
         }

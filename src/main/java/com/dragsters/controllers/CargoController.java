@@ -3,8 +3,7 @@ package com.dragsters.controllers;
 import com.dragsters.dao.CargoDAO;
 import com.dragsters.model.Cargo;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -20,24 +19,25 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "CargoController", urlPatterns = "/CargoController")
 public class CargoController extends HttpServlet {
   
+    private CargoDAO cargoDAO = new CargoDAO();
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Cargo> listaCargos = CargoDAO.listar();
+        ArrayList<Cargo> listaCargos = cargoDAO.listar();
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String titulo = request.getParameter("titulo");
         
+        String titulo = request.getParameter("titulo");
         Cargo cargo = new Cargo(titulo);
         
         try {
-            CargoDAO.criar(cargo);
-        } catch (SQLException ex) {
-            Logger.getLogger(CargoController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+            cargoDAO.criar(cargo);
+        } 
+        catch (Exception ex) {
             Logger.getLogger(CargoController.class.getName()).log(Level.SEVERE, null, ex);
         }
         

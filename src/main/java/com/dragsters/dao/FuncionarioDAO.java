@@ -1,24 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.dragsters.dao;
 
+import com.dragsters.interfaces.IDAO;
 import com.dragsters.model.Funcionario;
 import com.dragsters.utils.ConexaoDataBase;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author Gustavo Santos
  */
-public class FuncionarioDAO {
-    public static boolean criar(Funcionario funcionario) {
+public class FuncionarioDAO implements IDAO<Funcionario>{
+    @Override
+    public boolean criar(Funcionario funcionario) {
         PreparedStatement ps = null;
         
         try {
@@ -58,8 +54,8 @@ public class FuncionarioDAO {
     }
     
     // Listar todos os funcionarios ativos no sistema
-    public static List<Funcionario> listarAtivos() {
-        List<Funcionario> funcionarios = new ArrayList<>();
+    public ArrayList<Funcionario> listarAtivos() {
+        ArrayList<Funcionario> funcionarios = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         
@@ -100,8 +96,8 @@ public class FuncionarioDAO {
     }
     
     // Lista funcionario inativos no sistema
-    public static List<Funcionario> listarInativos() {
-        List<Funcionario> funcionarios = new ArrayList<>();
+    public ArrayList<Funcionario> listarInativos() {
+        ArrayList<Funcionario> funcionarios = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         
@@ -142,8 +138,9 @@ public class FuncionarioDAO {
     }
    
     // Lista todos os funcionarios
-    public static List<Funcionario> listar() {
-        List<Funcionario> funcionarios = new ArrayList<>();
+    @Override
+    public ArrayList<Funcionario> listar() {
+        ArrayList<Funcionario> funcionarios = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         
@@ -183,7 +180,8 @@ public class FuncionarioDAO {
         return funcionarios;
     }
 
-    public static boolean atualizar(Funcionario funcionario) {
+    @Override
+    public boolean atualizar(Funcionario funcionario) {
         PreparedStatement ps = null;
 
         try {
@@ -225,7 +223,8 @@ public class FuncionarioDAO {
         return true;
     }
     
-    public static boolean deletar(int funcionarioID) {
+    @Override
+    public boolean deletar(int funcionarioID) {
 
         PreparedStatement ps = null;
         
