@@ -95,16 +95,16 @@ FOREIGN KEY (PedidoID) REFERENCES Pedido (PedidoID),
 FOREIGN KEY (ProdutoID) REFERENCES Produto (ProdutoID)
 );
 
--- INSERT INTO Cargo(Titulo) VALUES
--- ('Diretoria'),
--- ('Produtos Global'),
--- ('Marketing Global')
--- ('Vendas Global'),
--- ('TI Global'),
+INSERT INTO Cargo(Titulo) VALUES
+('Diretoria'),
+('Produtos Global'),
+('Marketing Global'),
+('Vendas Global'),
+('TI Global');
 
 
 INSERT INTO Categoria(Titulo) VALUES
-('Supensão'),
+('Suspensões'),
 ('Rodas'),
 ('Pneus'),
 ('Freios'),
