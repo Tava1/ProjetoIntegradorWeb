@@ -35,7 +35,7 @@
 
 
   <div id="page-products">
-    <h1>ManutenÃ§Ã£o de produtos</h1>
+    <h1>Manutenção de produtos</h1>
     <div class="filter">
       <form>
         <div class="filter-inputs">
