@@ -1,0 +1,51 @@
+#page-create-role {
+  max-width: 1366px;
+  margin: 2em auto;
+}
+
+#page-create-role h1 {
+  color: #7FC9A8;
+  margin-bottom: 0.5em;
+}
+
+#page-create-role p {
+  margin-bottom: 0.5em;
+}
+
+#page-create-role .creation-data {
+  background: #E1FBEF;
+  width: 100%;
+  padding: 1em 2em;
+  border-radius: 7px;
+}
+
+#page-create-role .creation-data form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#page-create-role .creation-data form .creation-data-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#page-create-role .creation-data form .creation-data-inputs * {
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+#page-create-role .creation-data form .button-create {
+  width: 190px;
+  background: #7FC9A8;
+  color: #FFFFFF;
+  font-weight: 700;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+/*# sourceMappingURL=create-role.css.map */
