@@ -96,6 +96,8 @@ FOREIGN KEY (ProdutoID) REFERENCES Produto (ProdutoID)
 );
 
 INSERT INTO Cargo(Titulo) VALUES
+('Admin'),
+('Supervisor'),
 ('Diretoria'),
 ('Produtos Global'),
 ('Marketing Global'),
@@ -122,3 +124,8 @@ INSERT INTO Produto(Marca, Modelo, Descricao, PrecoUnitario, Ativo, CategoriaID,
 ('Bridgestone', '195/55R15 85H EP150 ECOPIA BRIDGESTONE', 'Os pneus Bridgestone EP150 foram desenvolvidos para veículos de tamanho intermediário e são modelos fabricados com composto que provê baixa resistência ao rolamento, traduzindo em muito mais economia, pois além de auxiliar na redução do consumo de combustível, também tem maior durabilidade e vida útil.', 329.00, 1, 3, 1),
 ('MOMO', 'RODA REVENGE MOMO ARO 19X8,5 5X120 ET 35', 'Preta Fosca', 1099.00, 1, 2, 1),
 ('MOMO', 'RODA STEALTH MOMO ARO 20X8,5 5X112 ET 45', 'GRAFITE FOSCA DIAMANTADA', 1199.00, 1, 2, 1);
+
+
+INSERT INTO Funcionario(Nome, CPF, Genero, Email, DataNascimento, Senha, Ativo, CargoID, UnidadeID) VALUES
+('Gustavo Santos', '12345678911', 'M', 'gustavo@dragsters.com', '1999-10-26', '1234', 1, '1', '1'),
+('Victor Pedrasani', '15948963245', 'M', 'victhor@dragsters.com', '1998-01-02', '6789', 0, '3', '2');
