@@ -1,14 +1,12 @@
 package com.dragsters.controllers;
 
-import com.dragsters.dao.CargoDAO;
-import com.dragsters.model.Cargo;
+import com.dragsters.dao.FuncionarioDAO;
+import com.dragsters.model.Funcionario;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,19 +15,19 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Gustavo Santos
  */
-@WebServlet(name = "CargoController", urlPatterns = "/CargoController")
-public class CargoController extends HttpServlet {
-  
-    private CargoDAO cargoDAO = new CargoDAO();
+public class FuncionarioController extends HttpServlet {
+
+    private FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ArrayList<Cargo> listaCargos = cargoDAO.listar();
+         ArrayList<Funcionario> listaFuncionarios = funcionarioDAO.listar();
         
-        request.setAttribute("listaCargos", listaCargos);
+        request.setAttribute("listaFuncionarios", listaFuncionarios);
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/roles/list-role.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/employees/list-employee.jsp");
         requestDispatcher.forward(request, response);
     }
+
 }

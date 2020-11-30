@@ -31,7 +31,7 @@ public class ClienteController extends HttpServlet {
         
         request.setAttribute("listaClientes", listaClientes);
         request.setCharacterEncoding("UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/customers.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/customers/list-customer.jsp");
         requestDispatcher.forward(request, response);
     }
 

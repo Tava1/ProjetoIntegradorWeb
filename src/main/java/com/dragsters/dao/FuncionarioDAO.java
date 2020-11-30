@@ -19,7 +19,7 @@ public class FuncionarioDAO implements IDAO<Funcionario>{
         
         try {
             Connection conn = ConexaoDataBase.abrirConexao();
-            ps = conn.prepareStatement("INSERT INTO Funcionario(Nome, CPF, Genero, Email, DataNascimento, Senha, Ativo, CargoID) VALUES (?, ?, ?, ?, ?, ?, ?, ?);");
+            ps = conn.prepareStatement("INSERT INTO Funcionario(Nome, CPF, Genero, Email, DataNascimento, Senha, Ativo, CargoID, UnidadeID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);");
             
             ps.setString(1, funcionario.getNome());
             ps.setString(2, funcionario.getCPF());
@@ -29,6 +29,7 @@ public class FuncionarioDAO implements IDAO<Funcionario>{
             ps.setString(6, funcionario.getSenha());
             ps.setInt(7, funcionario.getAtivo());
             ps.setInt(8, funcionario.getCargoID());
+            ps.setInt(9, funcionario.getUnidadeID());
             
             int linhasAfetadas = ps.executeUpdate();
             
@@ -76,6 +77,8 @@ public class FuncionarioDAO implements IDAO<Funcionario>{
                 funcionario.setDataNascimento(resultSet.getDate("DataNascimento"));
                 funcionario.setAtivo(resultSet.getInt("Ativo"));
                 funcionario.setCargoID(resultSet.getInt("CargoID"));
+                funcionario.setUnidadeID(resultSet.getInt("UnidadeID"));
+
                 
                 funcionarios.add(funcionario);
             }
@@ -118,6 +121,7 @@ public class FuncionarioDAO implements IDAO<Funcionario>{
                 funcionario.setDataNascimento(resultSet.getDate("DataNascimento"));
                 funcionario.setAtivo(resultSet.getInt("Ativo"));
                 funcionario.setCargoID(resultSet.getInt("CargoID"));
+                funcionario.setUnidadeID(resultSet.getInt("UnidadeID"));
                 
                 funcionarios.add(funcionario);
             }
@@ -161,6 +165,7 @@ public class FuncionarioDAO implements IDAO<Funcionario>{
                 funcionario.setDataNascimento(resultSet.getDate("DataNascimento"));
                 funcionario.setAtivo(resultSet.getInt("Ativo"));
                 funcionario.setCargoID(resultSet.getInt("CargoID"));
+                funcionario.setUnidadeID(resultSet.getInt("UnidadeID"));
                 
                 funcionarios.add(funcionario);
             }
@@ -186,16 +191,17 @@ public class FuncionarioDAO implements IDAO<Funcionario>{
 
         try {
             Connection conn = ConexaoDataBase.abrirConexao();
-            ps = conn.prepareStatement("UPDATE Funcionario SET Nome = ?, CPF = ?, Genero = ?, Email = ?, DataNascimento = ?, Senha = ?, Ativo = ?, CargoID = ? WHERE FuncionarioID = ?;");
+            ps = conn.prepareStatement("UPDATE Funcionario SET Nome = ?, CPF = ?, Genero = ?, Email = ?, DataNascimento = ?, Senha = ?, Ativo = ?, CargoID = ?, UnidadeID = ? WHERE FuncionarioID = ?;");
             
             ps.setString(1, funcionario.getNome());
             ps.setString(2, funcionario.getCPF());
             ps.setString(3, funcionario.getGenero());
-            ps.setString(5, funcionario.getEmail());
-            ps.setDate(6, funcionario.getDataNascimento());
-            ps.setString(7, funcionario.getSenha());
-            ps.setInt(8, funcionario.getAtivo());
-            ps.setInt(9, funcionario.getCargoID());
+            ps.setString(4, funcionario.getEmail());
+            ps.setDate(5, funcionario.getDataNascimento());
+            ps.setString(6, funcionario.getSenha());
+            ps.setInt(7, funcionario.getAtivo());
+            ps.setInt(8, funcionario.getCargoID());
+            ps.setInt(9, funcionario.getUnidadeID());
 
             // WHERE
             ps.setInt(10, funcionario.getFuncionarioID());

@@ -6,7 +6,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../styles/global.css">
+  <link rel="stylesheet" href="./styles/global.css">
   <title>Criar novo cargo</title>
 </head>
 
@@ -40,14 +40,17 @@
       repellendus, suscipit cupiditate consectetur repudiandae consequatur ipsam ullam! Architecto ratione velit ad
       quidem quis esse! Ad!</p>
     <div class="creation-data">
-      <form>
+      <form method="post" action="">
         <div class="creation-data-inputs">
-          <input type="text" placeholder="Titulo">
+          <input id="role-title" name="input-titulo" type="text" placeholder="Titulo">
         </div>
-        <button class="button-create">Cadastrar</button>
+        <button id="create-role" class="button-create">Cadastrar</button>
       </form>
     </div>
   </div>
+  <script src="https://kit.fontawesome.com/6d228377c9.js" crossorigin="anonymous"></script>
+  <script src="./lib/jquery-3.5.1.js"></script>
+  <script src="./scripts/roles.js"></script>
 </body>
 
 </html>
