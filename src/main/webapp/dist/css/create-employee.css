@@ -1,0 +1,76 @@
+#page-create-employee {
+  max-width: 1366px;
+  margin: 2em auto;
+}
+
+#page-create-employee h1 {
+  color: #7FC9A8;
+  margin-bottom: 0.5em;
+}
+
+#page-create-employee p {
+  margin-bottom: 0.5em;
+}
+
+#page-create-employee .creation-data {
+  background: #E1FBEF;
+  width: 100%;
+  padding: 1em 2em;
+  border-radius: 7px;
+}
+
+#page-create-employee .creation-data form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#page-create-employee .creation-data form .label-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+#page-create-employee .creation-data form .creation-data-inputs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#page-create-employee .creation-data form .creation-data-inputs * {
+  margin: 0 1em 1em 0;
+}
+
+#page-create-employee .creation-data form .creation-data-inputs .input-20 {
+  width: 20%;
+}
+
+#page-create-employee .creation-data form .creation-data-inputs .input-40 {
+  width: 40%;
+}
+
+#page-create-employee .creation-data form .creation-data-inputs .input-60 {
+  width: 60%;
+}
+
+#page-create-employee .creation-data form .creation-data-inputs .input-100 {
+  width: 100%;
+}
+
+#page-create-employee .creation-data form .button-create {
+  width: 190px;
+  background: #7FC9A8;
+  color: #FFFFFF;
+  font-weight: 700;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+/*# sourceMappingURL=create-employee.css.map */

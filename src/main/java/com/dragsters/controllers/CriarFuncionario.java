@@ -35,18 +35,19 @@ public class CriarFuncionario extends HttpServlet {
             throws ServletException, IOException {
         
         Funcionario funcionario = new Funcionario();
-
-        funcionario.setNome(request.getParameter("nome"));
-        funcionario.setCPF(request.getParameter("cpf"));
-        funcionario.setGenero(request.getParameter("genero"));
-        funcionario.setEmail(request.getParameter("email"));
-        funcionario.setDataNascimento(Date.valueOf(request.getParameter("dataNascimento")));
-        funcionario.setSenha(request.getParameter("senha"));
-        funcionario.setAtivo(Integer.parseInt(request.getParameter("ativo")));
-        funcionario.setCargoID(Integer.parseInt(request.getParameter("cargoID")));
-        funcionario.setUnidadeID(Integer.parseInt(request.getParameter("unidadeID")));
         
         try {
+
+            funcionario.setNome(request.getParameter("nome"));
+            funcionario.setCPF(request.getParameter("cpf"));
+            funcionario.setGenero(request.getParameter("genero"));
+            funcionario.setEmail(request.getParameter("email"));
+            funcionario.setDataNascimento(Date.valueOf(request.getParameter("dataNascimento")));
+            funcionario.setSenha(request.getParameter("senha"));
+            funcionario.setAtivo(1);
+            funcionario.setCargoID(Integer.parseInt(request.getParameter("cargoID")));
+            funcionario.setUnidadeID(Integer.parseInt(request.getParameter("unidadeID")));
+        
             funcionarioDAO.criar(funcionario);
         } 
         catch (Exception ex) {
