@@ -58,7 +58,7 @@ public class UnidadeDAO implements IDAO<Unidade>{
         
         try {
             Connection conn = ConexaoDataBase.abrirConexao();
-            ps = conn.prepareStatement("SELECT * FROM Produto");
+            ps = conn.prepareStatement("SELECT * FROM Unidade");
             
             resultSet = ps.executeQuery();
             

@@ -40,6 +40,10 @@
         <servlet-name>BuscarCargos</servlet-name>
         <servlet-class>com.dragsters.controllers.BuscarCargos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BuscarUnidades</servlet-name>
+        <servlet-class>com.dragsters.controllers.BuscarUnidades</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CargoController</servlet-name>
         <url-pattern>/CargoController</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>BuscarCargos</servlet-name>
         <url-pattern>/BuscarCargos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscarUnidades</servlet-name>
+        <url-pattern>/BuscarUnidades</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

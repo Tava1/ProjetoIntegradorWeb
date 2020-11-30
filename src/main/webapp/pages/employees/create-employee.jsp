@@ -34,7 +34,7 @@
   </header>
 
 
-  <div id="page-create-role">
+  <div id="page-create-employee">
     <h1>Novo Funcionário</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur laboriosam aliquam earum inventore vel
       repellendus, suscipit cupiditate consectetur repudiandae consequatur ipsam ullam! Architecto ratione velit ad
@@ -42,43 +42,35 @@
     <div class="creation-data">
       <form method="post" action="">
         <div class="creation-data-inputs">
-          <input id="funcionario-nome" name="input-nome" type="text" placeholder="Nome">
-        </div>
-        <input id="funcionario-cpf" name="input-nome" type="number" placeholder="CPF">
-
-        <select id="" name="">
-          <option value="0">Selecione o gênero</option>
-        </select>
-
-        <input id="funcionario-email" name="input-nome" type="text" placeholder="E-mail">
-        <input id="funcionario-dataNascimento" name="input-nome" type="date" placeholder="Data de Nascimento">
-        <input id="funcionario-senha" name="input-nome" type="password" placeholder="Senha">
-
-        <div>
-          <p>Selecione o Status:</p>
-          <div>
-            <input id="status-ativo" type="radio" name="status" value="1" checked>
-            <label for="status-ativo">Ativo</label>
-          </div>
-          <div>
-            <input id="status-inativo" type="radio" name="status" value="0">
-            <label for="status-inativo">Inativo</label>
-          </div>
+          <input class="input-60" id="funcionario-nome" type="text" placeholder="Nome">
+          <input class="input-40" id="funcionario-cpf" maxlength="11" type="number" placeholder="CPF">
         </div>
 
-        <select name="" id="funcionario-cargo-id">
-          <option value="1">Selecione o Cargo</option>
-          <c:forEach var="cargo" items="${listaCargos}">
-            <option value=${cargo.cargoID}>${cargo.titulo}</option>
-          </c:forEach>
-        </select>
 
-        <select name="" id="funcionario-unidade-id">
-          <option id="" value="0">Selecione a Unidade</option>
-          <c:forEach var="unidade" items="${listaUnidades}">
-            <option value=${unidade.cargoID}>${unidade.cidade}</option>
-          </c:forEach>
-        </select>
+
+        <div class="creation-data-inputs">
+          <input class="input-100" id="funcionario-email" type="email" placeholder="E-mail">
+        </div>
+        <div class="creation-data-inputs">
+          <select class="input-20" id="funcionario-genero">
+            <option value="0">Selecione o gênero</option>
+          </select>
+
+          <input class="input-20" id="funcionario-data-nascimento" type="date" placeholder="Data de Nascimento">
+        </div>
+
+        <div class="creation-data-inputs">
+          <label>Escolha uma senha de acesso ao sistema</label>
+          <input class="input-20" id="funcionario-senha" type="password" placeholder="Senha">
+        </div>
+
+        <div class="creation-data-inputs">
+          <select class="input-20" id="funcionario-cargo">
+          </select>
+
+          <select class="input-20" id="funcionario-unidade">
+          </select>
+        </div>
 
         <button id="create-employee" class="button-create">Cadastrar</button>
       </form>
