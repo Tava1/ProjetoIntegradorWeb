@@ -12,9 +12,14 @@ import lombok.Setter;
 @Setter
 public class Unidade extends Endereco {
     private int unidadeID;
+    private String titulo;
 
-    public Unidade(int unidadeID, String endereco, String enderecoNumero, String complemento, String cidade, String estado) {
+    public Unidade() {
+    }
+    
+    public Unidade(int unidadeID, String titulo, String endereco, String enderecoNumero, String complemento, String cidade, String estado) {
         super(endereco, enderecoNumero, complemento, cidade, estado);
         this.unidadeID = unidadeID;
+        this.titulo = titulo;
     }
 }

@@ -6,7 +6,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../styles/global.css">
+  <link rel="stylesheet" href="./styles/global.css">
   <title>Listar Cargos</title>
 </head>
 
@@ -63,8 +63,12 @@
             <tr>
               <th scope="row">${cargo.cargoID}</th>
               <td>${cargo.titulo}</td>
-              <td></td>
-              <td></td>
+              <td>
+                <i class="fas fa-edit"></i>
+              </td>
+              <td>
+                <i class="fas fa-times"></i>
+              </td>
             </tr>
           </c:forEach>
         </tbody>
@@ -72,6 +76,9 @@
 
     </div>
   </div>
+  <script src="https://kit.fontawesome.com/6d228377c9.js" crossorigin="anonymous"></script>
+  <script src="./lib/jquery-3.5.1.js"></script>
+  <script src="./scripts/roles.js"></script>
 </body>
 
 </html>

@@ -15,4 +15,5 @@ public class Funcionario extends Pessoa {
     private String senha;
     private int ativo;
     private int cargoID;
+    private int unidadeID;
 }
