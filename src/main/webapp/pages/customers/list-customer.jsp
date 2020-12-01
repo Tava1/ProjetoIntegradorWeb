@@ -56,7 +56,8 @@
             <th scope="col">Data de Nascimento</th>
             <th scope="col">Cidade</th>
             <th scope="col">UF</th>
-            <th scope="col">Ações</th>
+            <th scope="col">Alterar</th>
+            <th scope="col">Deletar</th>
 
           </tr>
         </thead>
@@ -72,7 +73,10 @@
               <td>${cliente.cidade}</td>
               <td>${cliente.estado}</td>
               <td>
-                <a href="">Detalhes</a>
+                <i class="fas fa-edit"></i>
+              </td>
+              <td>
+                <i class="fas fa-times"></i>
               </td>
             </tr>
 
