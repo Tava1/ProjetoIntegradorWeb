@@ -30,28 +30,6 @@ public class ProdutoController extends HttpServlet {
         RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/products/list-product.jsp");
         requestDispatcher.forward(request, response);
     }
-
-    // Cria um novo produto
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        Produto produto = new Produto();
-        
-        produto.setMarca(request.getParameter("marca"));
-        produto.setModelo(request.getParameter("modelo"));
-        produto.setDescricao(request.getParameter("descricao"));
-        produto.setPrecoUnitario(Double.parseDouble(request.getParameter("precoUnitario")));
-        produto.setAtivo(Integer.parseInt(request.getParameter("ativo")));
-        produto.setCategoriaID(Integer.parseInt(request.getParameter("categoriaID")));
-        produto.setUnidadeID(Integer.parseInt(request.getParameter("unidadeID")));
-        
-        try {
-            produtoDAO.criar(produto);
-        } 
-        catch (Exception e) {
-        }
-    }
     
     // Atualiza um produto especifico
     @Override
