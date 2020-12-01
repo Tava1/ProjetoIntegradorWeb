@@ -25,26 +25,30 @@ $(document).ready(function () {
     })
   })
 
+  $('#update-role').click(function () {
+
+    const cargoID = $('#role-id').val();
+    const titulo = $('#role-titulo').val();
+
+    const parameters = `cargoID=${cargoID}&titulo=${titulo}`;
+
+    console.log(parameters);
+
+    $.ajax({
+      type: 'PUT',
+      url: '/Dragsters/DetalheCargo',
+      data: parameters,
+      success: function (responseText) {
+        console.log(responseText);
+      },
+      fail: function () {
+        alert('Nao Foi!')
+      }
+    })
+  })
+
 
 });
-
-function detalheRole(btn) {
-
-  let cargoID = $(btn).val();
-  const parameters = `cargoID=${cargoID}`;
-
-  $.ajax({
-    type: 'GET',
-    url: '/Dragsters/DetalheCargo',
-    data: parameters,
-    success: function (responseText) {
-      $("html").replaceWith(responseText);
-    },
-    fail: function () {
-      alert('Nao Foi!')
-    }
-  })
-}
 
 function deleteRole(btn) {
 
