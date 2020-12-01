@@ -23,8 +23,6 @@ public class CargoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-                    
         
         ArrayList<Cargo> listaCargos = cargoDAO.listar();
         request.setAttribute("listaCargos", listaCargos);

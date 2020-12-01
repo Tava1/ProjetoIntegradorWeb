@@ -43,11 +43,11 @@
       <form method="post" action="">
         <div class="creation-data-inputs">
           <!-- Input de ID sempre deve conter a propriedade disabled -->
-          <input id="role-id" name="input-id" type="text" placeholder="ID" value="${cargo.cargoID}" disabled>
+          <input id="role-id" name="input-id" type="number" placeholder="ID" value="${cargo.cargoID}" disabled>
 
-          <input id="role-title" name="input-titulo" value="${cargo.titulo}" type="text" placeholder="Titulo">
+          <input id="role-titulo" name="input-titulo" value="${cargo.titulo}" type="text" placeholder="Titulo">
         </div>
-        <button id="create-role" class="button-create">Salvar</button>
+        <button id="update-role" class="button-create">Salvar</button>
       </form>
     </div>
   </div>
