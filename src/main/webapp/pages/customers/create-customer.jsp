@@ -29,7 +29,7 @@
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR7S9pKMslch4WjEcuH1FTueBDvu3nL4NTsNg&usqp=CAU"
             alt="avatar">
-        </div>-
+        </div>
       </div>
     </div>
   </header>

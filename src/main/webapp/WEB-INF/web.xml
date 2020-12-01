@@ -72,6 +72,10 @@
         <servlet-name>BuscarCategorias</servlet-name>
         <servlet-class>com.dragsters.controllers.BuscarCategorias</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DetalheCargo</servlet-name>
+        <servlet-class>com.dragsters.controllers.DetalheCargo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CargoController</servlet-name>
         <url-pattern>/CargoController</url-pattern>
@@ -143,6 +147,10 @@
     <servlet-mapping>
         <servlet-name>BuscarCategorias</servlet-name>
         <url-pattern>/BuscarCategorias</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetalheCargo</servlet-name>
+        <url-pattern>/DetalheCargo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

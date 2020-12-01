@@ -28,6 +28,24 @@ $(document).ready(function () {
 
 });
 
+function detalheRole(btn) {
+
+  let cargoID = $(btn).val();
+  const parameters = `cargoID=${cargoID}`;
+
+  $.ajax({
+    type: 'GET',
+    url: '/Dragsters/DetalheCargo',
+    data: parameters,
+    success: function (responseText) {
+      $("html").replaceWith(responseText);
+    },
+    fail: function () {
+      alert('Nao Foi!')
+    }
+  })
+}
+
 function deleteRole(btn) {
 
   let cargoID = $(btn).val();

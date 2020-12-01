@@ -143,4 +143,39 @@ public class CargoDAO implements IDAO<Cargo> {
 
         return true;
     }
+    
+    
+    public Cargo listarCargoID(int cargoID) {
+        PreparedStatement ps = null; 
+        ResultSet resultSet = null;
+        
+        Cargo cargo = new Cargo();
+        
+        try {
+            Connection conn = ConexaoDataBase.abrirConexao();
+            ps = conn.prepareStatement("SELECT * FROM Cargo WHERE CargoID = ?;");
+            ps.setInt(1, cargoID);
+            
+            resultSet = ps.executeQuery();
+            
+            while (resultSet.next()) {
+                cargo.setCargoID(resultSet.getInt("CargoID"));
+                cargo.setTitulo(resultSet.getString("Titulo"));
+            }
+
+        } 
+        catch (Exception e) {
+        }
+        finally {
+            try {
+                if (ps != null) {
+                    ConexaoDataBase.fecharConexao();
+                }
+            } 
+            catch (Exception e) {
+            }
+        }
+        
+        return cargo;
+    }
 }

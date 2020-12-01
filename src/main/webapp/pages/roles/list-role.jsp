@@ -64,9 +64,11 @@
               <th scope="row">${cargo.cargoID}</th>
               <td>${cargo.titulo}</td>
               <td>
-                <button value=${cargo.cargoID}>
-                  <i class="fas fa-edit"></i>
-                </button>
+                <a href="DetalheCargo?cargoID=${cargo.cargoID}">
+                  <button value=${cargo.cargoID}>
+                    <i class="fas fa-edit"></i>
+                  </button>
+                </a>
               </td>
               <td>
                 <button onClick="deleteRole(this)" id="delete-role" value=${cargo.cargoID}>
