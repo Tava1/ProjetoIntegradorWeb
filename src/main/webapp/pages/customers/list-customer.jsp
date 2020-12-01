@@ -40,6 +40,7 @@
     <div class="filter">
       <form>
         <div class="filter-inputs">
+          <input type="number" placeholder="ID" disabled>
           <input type="number" placeholder="CPF">
           <input type="text" placeholder="Nome">
         </div>
