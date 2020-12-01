@@ -65,4 +65,33 @@ $(document).ready(function () {
       }
     })
   })
+
+  $('#update-product').click(function () {
+
+    const produtoID = $('#produto-id').val();
+    const marca = $('#produto-marca').val();
+    const modelo = $('#produto-modelo').val();
+    const descricao = $('#produto-descricao').val();
+    const precoUnitario = $('#produto-preco-unitario').val();
+    const categoriaID = $('#produto-categoria option:selected').val();
+    const unidadeID = $('#produto-unidade option:selected').val();
+
+    const parameters = `produtoID=${produtoID}&marca=${marca}&modelo=${modelo}&descricao=${descricao}&precoUnitario=${precoUnitario}&categoriaID=${categoriaID}&unidadeID=${unidadeID}`;
+
+    console.log(parameters);
+
+    $.ajax({
+      type: 'PUT',
+      url: '/Dragsters/DetalheProduto',
+      data: parameters,
+      success: function (responseText) {
+        console.log(responseText);
+      },
+      fail: function () {
+        alert('Nao Foi!')
+      }
+    })
+  })
+
+
 });

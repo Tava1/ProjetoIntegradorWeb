@@ -133,8 +133,6 @@ public class ClienteDAO implements IDAO<Cliente>{
                 cliente.setComplemento(resultSet.getString("Complemento"));
                 cliente.setCidade(resultSet.getString("Cidade"));
                 cliente.setEstado(resultSet.getString("Estado"));
-                
-                //clientes.add(cliente);
             }
         } 
         catch (Exception e) {
@@ -279,4 +277,51 @@ public class ClienteDAO implements IDAO<Cliente>{
 
         return true;
     }
+
+    public Cliente listarClienteID(int clienteID) {
+        PreparedStatement ps = null; 
+        ResultSet resultSet = null;
+        
+        Cliente cliente = new Cliente();
+        
+        try {
+            Connection conn = ConexaoDataBase.abrirConexao();
+            ps = conn.prepareStatement("SELECT * FROM Cliente WHERE ClienteID = ?;");
+            ps.setInt(1, clienteID);
+            
+            resultSet = ps.executeQuery();
+            
+            while (resultSet.next()) {
+                cliente.setClienteID(resultSet.getInt("ClienteID"));
+                cliente.setNome(resultSet.getString("Nome"));
+                cliente.setCPF(resultSet.getString("CPF"));
+                cliente.setGenero(resultSet.getString("Genero"));
+                cliente.setEstadoCivil(resultSet.getString("EstadoCivil"));
+                cliente.setEmail(resultSet.getString("Email"));
+                cliente.setDataNascimento(resultSet.getDate("DataNascimento"));
+                cliente.setNumeroContato(resultSet.getString("NumeroContato"));
+                cliente.setEndereco(resultSet.getString("Endereco"));
+                cliente.setEnderecoNumero(resultSet.getString("EnderecoNumero"));
+                cliente.setComplemento(resultSet.getString("Complemento"));
+                cliente.setCidade(resultSet.getString("Cidade"));
+                cliente.setEstado(resultSet.getString("Estado"));
+            }
+
+        } 
+        catch (Exception e) {
+        }
+        finally {
+            try {
+                if (ps != null) {
+                    ConexaoDataBase.fecharConexao();
+                }
+            } 
+            catch (Exception e) {
+            }
+        }
+        
+        return cliente;
+    }
+
+   
 }

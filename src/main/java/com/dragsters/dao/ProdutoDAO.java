@@ -292,4 +292,45 @@ public class ProdutoDAO implements IDAO<Produto>{
 
         return true;
     }
+
+    public Produto listarProdutoID(int produtoID) {
+        PreparedStatement ps = null; 
+        ResultSet resultSet = null;
+        
+        Produto produto = new Produto();
+        
+        try {
+            Connection conn = ConexaoDataBase.abrirConexao();
+            ps = conn.prepareStatement("SELECT * FROM Produto WHERE ProdutoID = ?;");
+            ps.setInt(1, produtoID);
+            
+            resultSet = ps.executeQuery();
+            
+            while (resultSet.next()) {
+                produto.setProdutoID(resultSet.getInt("ProdutoID"));
+                produto.setMarca(resultSet.getString("Marca"));
+                produto.setModelo(resultSet.getString("Modelo"));
+                produto.setDescricao(resultSet.getString("Descricao"));
+                produto.setPrecoUnitario(resultSet.getDouble("PrecoUnitario"));
+                produto.setAtivo(resultSet.getInt("Ativo"));
+                produto.setCategoriaID(resultSet.getInt("CategoriaID"));
+                produto.setUnidadeID(resultSet.getInt("UnidadeID"));
+            }
+
+        } 
+        catch (Exception e) {
+        }
+        finally {
+            try {
+                if (ps != null) {
+                    ConexaoDataBase.fecharConexao();
+                }
+            } 
+            catch (Exception e) {
+            }
+        }
+        
+        return produto;
+    }
+
 }

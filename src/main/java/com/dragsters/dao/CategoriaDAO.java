@@ -144,4 +144,39 @@ public class CategoriaDAO implements IDAO<Categoria>{
 
         return true;
     }
+
+    public Categoria listarCategoriaID(int categoriaID) {
+        PreparedStatement ps = null; 
+        ResultSet resultSet = null;
+        
+        Categoria categoria = new Categoria();
+        
+        try {
+            Connection conn = ConexaoDataBase.abrirConexao();
+            ps = conn.prepareStatement("SELECT * FROM Categoria WHERE CategoriaID = ?;");
+            ps.setInt(1, categoriaID);
+            
+            resultSet = ps.executeQuery();
+            
+            while (resultSet.next()) {
+                categoria.setCategoriaID(resultSet.getInt("CategoriaID"));
+                categoria.setTitulo(resultSet.getString("Titulo"));
+            }
+
+        } 
+        catch (Exception e) {
+        }
+        finally {
+            try {
+                if (ps != null) {
+                    ConexaoDataBase.fecharConexao();
+                }
+            } 
+            catch (Exception e) {
+            }
+        }
+        
+        return categoria;
+    }
+
 }

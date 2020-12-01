@@ -163,4 +163,44 @@ public class UnidadeDAO implements IDAO<Unidade>{
 
         return true;
     }
+
+    public Unidade listarUnidadeID(int unidadeID) {
+        PreparedStatement ps = null; 
+        ResultSet resultSet = null;
+        
+        Unidade unidade = new Unidade();
+        
+        try {
+            Connection conn = ConexaoDataBase.abrirConexao();
+            ps = conn.prepareStatement("SELECT * FROM Unidade WHERE UnidadeID = ?;");
+            ps.setInt(1, unidadeID);
+            
+            resultSet = ps.executeQuery();
+            
+            while (resultSet.next()) {
+                unidade.setUnidadeID(resultSet.getInt("UnidadeID"));
+                unidade.setEndereco(resultSet.getString("Endereco"));
+                unidade.setEnderecoNumero(resultSet.getString("EnderecoNumero"));
+                unidade.setCidade(resultSet.getString("Cidade"));
+                unidade.setEstado(resultSet.getString("Estado"));
+                unidade.setTitulo(resultSet.getString("Titulo"));
+            }
+
+        } 
+        catch (Exception e) {
+        }
+        finally {
+            try {
+                if (ps != null) {
+                    ConexaoDataBase.fecharConexao();
+                }
+            } 
+            catch (Exception e) {
+            }
+        }
+        
+        return unidade;
+    }
+
+
 }

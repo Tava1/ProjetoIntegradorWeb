@@ -24,4 +24,28 @@ $(document).ready(function () {
       }
     })
   })
+
+
+  $('#update-category').click(function () {
+
+    const categoriaID = $('#categoria-id').val();
+    const titulo = $('#categoria-titulo').val();
+
+    const parameters = `categoriaID=${categoriaID}&titulo=${titulo}`;
+
+    console.log(parameters);
+
+    $.ajax({
+      type: 'PUT',
+      url: '/Dragsters/DetalheCategoria',
+      data: parameters,
+      success: function (responseText) {
+        console.log(responseText);
+      },
+      fail: function () {
+        alert('Nao Foi!')
+      }
+    })
+  })
+
 });
