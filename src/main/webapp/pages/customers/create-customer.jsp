@@ -84,7 +84,7 @@
   <script src="https://kit.fontawesome.com/6d228377c9.js" crossorigin="anonymous"></script>
   <script src="./lib/jquery-3.5.1.js"></script>
   <script src="./scripts/customer.js"></script>
-  <script src="./scripts/api-cep.js"></script>
+  <script src="./scripts/apis/api-cep.js"></script>
 </body>
 
 </html>

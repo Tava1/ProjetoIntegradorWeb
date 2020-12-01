@@ -51,7 +51,7 @@
         </div>
 
         <div class="creation-data-inputs">
-          <input class="input-100" id="produto-preco" type="number" placeholder="Preço P/ Unidade">
+          <input class="input-100" id="produto-preco" type="text" placeholder="Preço P/ Unidade">
           <input class="input-100" id="produto-estoque-quantidade" type="number" placeholder="Quantidade de estoque">
         </div>
 
@@ -69,6 +69,7 @@
   </div>
   <script src="https://kit.fontawesome.com/6d228377c9.js" crossorigin="anonymous"></script>
   <script src="./lib/jquery-3.5.1.js"></script>
+  <script src="./scripts/apis/jquery.maskMoney.js" type="text/javascript"></script>
   <script src="./scripts/product.js"></script>
 </body>
 

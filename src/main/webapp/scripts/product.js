@@ -1,8 +1,11 @@
+
 $(document).ready(function () {
 
   $('form').click(function (event) {
     event.preventDefault();
   })
+
+  $("#produto-preco").maskMoney({ prefix: 'R$ ', allowNegative: true, thousands: '.', decimal: ',', affixesStay: false });
 
   $.ajax({
     type: 'GET',
