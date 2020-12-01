@@ -65,4 +65,34 @@ $(document).ready(function () {
       }
     })
   })
+
+  $('#update-employee').click(function () {
+
+    const funcionarioID = $('#funcionario-id').val();
+    const nome = $('#funcionario-nome').val();
+    const cpf = $('#funcionario-cpf').val();
+    const genero = $('#funcionario-genero option:selected').val();
+    const email = $('#funcionario-email').val();
+    const dataNascimento = $('#funcionario-data-nascimento').val();
+    const senha = $('#funcionario-senha').val();
+    const cargoID = $('#funcionario-cargo option:selected').val();
+    const unidadeID = $('#funcionario-unidade option:selected').val();
+
+    const parameters = `funcionarioID=${funcionarioID}&nome=${nome}&cpf=${cpf}&genero=${genero}&email=${email}&dataNascimento=${dataNascimento}&senha=${senha}&cargoID=${cargoID}&unidadeID=${unidadeID}`;
+
+    console.log(parameters);
+
+    $.ajax({
+      type: 'PUT',
+      url: '/Dragsters/DetalheFuncionario',
+      data: parameters,
+      success: function (responseText) {
+        console.log(responseText);
+      },
+      fail: function () {
+        alert('Nao Foi!')
+      }
+    })
+  })
+
 });

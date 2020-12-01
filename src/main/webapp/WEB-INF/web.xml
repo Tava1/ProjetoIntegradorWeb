@@ -76,6 +76,26 @@
         <servlet-name>DetalheCargo</servlet-name>
         <servlet-class>com.dragsters.controllers.DetalheCargo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DetalheCategoria</servlet-name>
+        <servlet-class>com.dragsters.controllers.DetalheCategoria</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DetalheUnidade</servlet-name>
+        <servlet-class>com.dragsters.controllers.DetalheUnidade</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DetalheCliente</servlet-name>
+        <servlet-class>com.dragsters.controllers.DetalheCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DetalheProduto</servlet-name>
+        <servlet-class>com.dragsters.controllers.DetalheProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DetalheFuncionario</servlet-name>
+        <servlet-class>com.dragsters.controllers.DetalheFuncionario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CargoController</servlet-name>
         <url-pattern>/CargoController</url-pattern>
@@ -151,6 +171,26 @@
     <servlet-mapping>
         <servlet-name>DetalheCargo</servlet-name>
         <url-pattern>/DetalheCargo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetalheCategoria</servlet-name>
+        <url-pattern>/DetalheCategoria</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetalheUnidade</servlet-name>
+        <url-pattern>/DetalheUnidade</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetalheCliente</servlet-name>
+        <url-pattern>/DetalheCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetalheProduto</servlet-name>
+        <url-pattern>/DetalheProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetalheFuncionario</servlet-name>
+        <url-pattern>/DetalheFuncionario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

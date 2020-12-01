@@ -262,4 +262,47 @@ public class FuncionarioDAO implements IDAO<Funcionario>{
 
         return true;
     }
+    
+            
+    public Funcionario listarFuncionarioID(int funcionarioID) {
+        PreparedStatement ps = null; 
+        ResultSet resultSet = null;
+        
+        Funcionario funcionario = new Funcionario();
+        
+        try {
+            Connection conn = ConexaoDataBase.abrirConexao();
+            ps = conn.prepareStatement("SELECT * FROM Funcionario WHERE FuncionarioID = ?;");
+            ps.setInt(1, funcionarioID);
+            
+            resultSet = ps.executeQuery();
+            
+            while (resultSet.next()) {
+                funcionario.setFuncionarioID(resultSet.getInt("FuncionarioID"));
+                funcionario.setNome(resultSet.getString("Nome"));
+                funcionario.setCPF(resultSet.getString("CPF"));
+                funcionario.setGenero(resultSet.getString("Genero"));
+                funcionario.setEmail(resultSet.getString("Email"));
+                funcionario.setDataNascimento(resultSet.getDate("DataNascimento"));
+                funcionario.setAtivo(resultSet.getInt("Ativo"));
+                funcionario.setCargoID(resultSet.getInt("CargoID"));
+                funcionario.setUnidadeID(resultSet.getInt("UnidadeID"));
+            }
+
+        } 
+        catch (Exception e) {
+        }
+        finally {
+            try {
+                if (ps != null) {
+                    ConexaoDataBase.fecharConexao();
+                }
+            } 
+            catch (Exception e) {
+            }
+        }
+        
+        return funcionario;
+    }
+    
 }
