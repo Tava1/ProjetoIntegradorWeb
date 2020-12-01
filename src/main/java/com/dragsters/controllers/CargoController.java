@@ -4,8 +4,6 @@ import com.dragsters.dao.CargoDAO;
 import com.dragsters.model.Cargo;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,5 +29,25 @@ public class CargoController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/roles/list-role.jsp");
         requestDispatcher.forward(request, response);
+    }
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        
+        int cargoID = Integer.parseInt(request.getParameter("cargoID"));
+        
+        try {
+            cargoDAO.deletar(cargoID);
+
+            ArrayList<Cargo> listaCargos = cargoDAO.listar();
+
+            request.setAttribute("listaCargos", listaCargos);
+            response.setContentType("text/html;charset=UTF-8");
+            RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/roles/list-role.jsp");
+            requestDispatcher.forward(request, response);
+        } 
+        catch (Exception e) {
+        }
     }
 }
