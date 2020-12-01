@@ -64,10 +64,14 @@
               <th scope="row">${cargo.cargoID}</th>
               <td>${cargo.titulo}</td>
               <td>
-                <i class="fas fa-edit"></i>
+                <button value=${cargo.cargoID}>
+                  <i class="fas fa-edit"></i>
+                </button>
               </td>
               <td>
-                <i class="fas fa-times"></i>
+                <button onClick="deleteRole(this)" id="delete-role" value=${cargo.cargoID}>
+                  <i class="fas fa-times"></i>
+                </button>
               </td>
             </tr>
           </c:forEach>

@@ -24,4 +24,26 @@ $(document).ready(function () {
       }
     })
   })
+
+
 });
+
+function deleteRole(btn) {
+
+  let cargoID = $(btn).val();
+  let parameters = 'cargoID=' + cargoID;
+
+  console.log(parameters);
+
+  $.ajax({
+    type: 'POST',
+    url: '/Dragsters/CargoController',
+    data: parameters,
+    success: function (responseText) {
+      location.reload();
+    },
+    fail: function () {
+      alert('Nao Foi!')
+    }
+  })
+}
