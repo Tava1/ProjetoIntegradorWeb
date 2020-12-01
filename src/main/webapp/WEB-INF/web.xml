@@ -44,6 +44,34 @@
         <servlet-name>BuscarUnidades</servlet-name>
         <servlet-class>com.dragsters.controllers.BuscarUnidades</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CriarCliente</servlet-name>
+        <servlet-class>com.dragsters.controllers.CriarCliente</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UnidadeController</servlet-name>
+        <servlet-class>com.dragsters.controllers.UnidadeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CriarUnidade</servlet-name>
+        <servlet-class>com.dragsters.controllers.CriarUnidade</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CriarCategoriaProduto</servlet-name>
+        <servlet-class>com.dragsters.controllers.CriarCategoriaProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CategoriaProdutoController</servlet-name>
+        <servlet-class>com.dragsters.controllers.CategoriaProdutoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CriarProduto</servlet-name>
+        <servlet-class>com.dragsters.controllers.CriarProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BuscarCategorias</servlet-name>
+        <servlet-class>com.dragsters.controllers.BuscarCategorias</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CargoController</servlet-name>
         <url-pattern>/CargoController</url-pattern>
@@ -87,6 +115,34 @@
     <servlet-mapping>
         <servlet-name>BuscarUnidades</servlet-name>
         <url-pattern>/BuscarUnidades</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CriarCliente</servlet-name>
+        <url-pattern>/CriarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UnidadeController</servlet-name>
+        <url-pattern>/UnidadeController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CriarUnidade</servlet-name>
+        <url-pattern>/CriarUnidade</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CriarCategoriaProduto</servlet-name>
+        <url-pattern>/CriarCategoriaProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoriaProdutoController</servlet-name>
+        <url-pattern>/CategoriaProdutoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CriarProduto</servlet-name>
+        <url-pattern>/CriarProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuscarCategorias</servlet-name>
+        <url-pattern>/BuscarCategorias</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

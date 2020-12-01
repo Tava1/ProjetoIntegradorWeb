@@ -46,14 +46,15 @@
           <input class="input-40" id="funcionario-cpf" maxlength="11" type="number" placeholder="CPF">
         </div>
 
-
-
         <div class="creation-data-inputs">
           <input class="input-100" id="funcionario-email" type="email" placeholder="E-mail">
         </div>
         <div class="creation-data-inputs">
           <select class="input-20" id="funcionario-genero">
-            <option value="0">Selecione o gênero</option>
+            <option value="NA">Selecione o gênero</option>
+            <option value="F">Feminino</option>
+            <option value="M">Masculino</option>
+            <option value="O">Prefiro não dizer</option>
           </select>
 
           <input class="input-20" id="funcionario-data-nascimento" type="date" placeholder="Data de Nascimento">
