@@ -39,16 +39,23 @@ public class CargoController extends HttpServlet {
         int cargoID = Integer.parseInt(request.getParameter("cargoID"));
         
         try {
-            cargoDAO.deletar(cargoID);
-
-            ArrayList<Cargo> listaCargos = cargoDAO.listar();
-
-            request.setAttribute("listaCargos", listaCargos);
-            response.setContentType("text/html;charset=UTF-8");
-            RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/roles/list-role.jsp");
-            requestDispatcher.forward(request, response);
+            if(cargoDAO.deletar(cargoID))
+            {
+                ArrayList<Cargo> listaCargos = cargoDAO.listar();
+                request.setAttribute("listaCargos", listaCargos);
+                response.setContentType("text/html;charset=UTF-8");
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/roles/list-role.jsp");
+                requestDispatcher.forward(request, response);
+            }
+            else {
+                throw new Exception("Ocorreu algum erro ao tentar deletar.");
+            }
         } 
         catch (Exception e) {
+            request.setAttribute("erro", e.getMessage());
+            response.setContentType("text/html;charset=UTF-8");
+            RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/error.jsp");
+            requestDispatcher.forward(request, response);
         }
     }
 }
