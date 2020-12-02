@@ -26,7 +26,7 @@ public class VendaController extends HttpServlet {
             throws ServletException, IOException {
         
         request.setCharacterEncoding("UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/order.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/orders/order.jsp");
         requestDispatcher.forward(request, response);
     }
 

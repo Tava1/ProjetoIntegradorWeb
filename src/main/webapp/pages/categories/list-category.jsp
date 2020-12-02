@@ -48,15 +48,21 @@
                 </a>
               </td>
               <td>
-                <button onClick="deleteCategory(this)" id="delete-category" value=${categoria.categoriaID}>
-                  <i class="fas fa-times"></i>
-                </button>
+                <div class="column-delete">
+                  <button onClick="deleteCategory(this)" id="delete-category" value=${categoria.categoriaID}>
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
               </td>
             </tr>
           </c:forEach>
         </tbody>
       </table>
 
+    </div>
+
+    <div class="create-new">
+      <a class="button-new" href="CriarCategoriaProduto">Novo</a>
     </div>
   </div>
   <script src="https://kit.fontawesome.com/6d228377c9.js" crossorigin="anonymous"></script>

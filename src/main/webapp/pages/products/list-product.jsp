@@ -62,9 +62,11 @@
                 </a>
               </td>
               <td>
-                <button onClick="deleteProduct(this)" id="delete-product" value=${produto.produtoID}>
-                  <i class="fas fa-times"></i>
-                </button>
+                <div class="column-delete">
+                  <button onClick="deleteProduct(this)" id="delete-product" value=${produto.produtoID}>
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
               </td>
             </tr>
 
@@ -72,6 +74,9 @@
         </tbody>
       </table>
 
+    </div>
+    <div class="create-new">
+      <a class="button-new" href="CriarProduto">Novo</a>
     </div>
   </div>
   <script src="https://kit.fontawesome.com/6d228377c9.js" crossorigin="anonymous"></script>
