@@ -138,6 +138,7 @@ public class CargoDAO implements IDAO<Cargo> {
                 }
             } 
             catch (Exception e) {
+                return false;
             }
         }
 
