@@ -64,7 +64,9 @@
               <th scope="row">${categoria.categoriaID}</th>
               <td>${categoria.titulo}</td>
               <td>
-                <i class="fas fa-edit"></i>
+                <a href="DetalheCategoria?categoriaID=${categoria.categoriaID}">
+                  <i class="fas fa-edit"></i>
+                </a>
               </td>
               <td>
                 <i class="fas fa-times"></i>

@@ -39,9 +39,9 @@
     <p>Cadastro de cliente realizado pela filiar, ainda não sei o que colocar aqui</p>
     <div class="creation-data">
       <form action="" method="post">
-        <input type="number" placeholder="ID" disabled>
-        <input type="text" id="cliente-nome" placeholder="Nome">
-        <input type="number" id="cliente-cpf" placeholder="CPF">
+        <input type="number" placeholder="ID" value="${cliente.clienteID}" id="cliente-id" disabled>
+        <input type="text" id="cliente-nome" value="${cliente.nome}" placeholder="Nome">
+        <input type="number" id="cliente-cpf" value="${cliente.CPF}" placeholder="CPF">
 
         <select id="cliente-genero">
           <option value="NA">Selecione o gênero</option>
@@ -58,25 +58,26 @@
           <option value="5">Separado(a)</option>
         </select>
 
-        <input type="email" id="cliente-email" placeholder="E-mail">
-        <input type="date" id="cliente-data-nascimento">
-        <input type="number" id="cliente-numero-contato" placeholder="Contato: (00) 0 0000 0000">
+        <input type="email" value="${cliente.email}" id="cliente-email" placeholder="E-mail">
+        <input type="date" value="${cliente.dataNascimento}" id="cliente-data-nascimento">
+        <input type="number" value="${cliente.numeroContato}" id="cliente-numero-contato"
+          placeholder="Contato: (00) 0 0000 0000">
         <input type="numeber" name="cep" id="cep" placeholder="CEP">
-        <input type="text" name="rua" id="cliente-endereco" placeholder="Endereço">
-        <input type="number" id="cliente-endereco-numero" placeholder="Nº">
-        <input type="text" id="cliente-complemento" placeholder="Complemento">
+        <input type="text" name="rua" value="${cliente.endereco}" id="cliente-endereco" placeholder="Endereço">
+        <input type="number" id="cliente-endereco-numero" value="${cliente.enderecoNumero}" placeholder="Nº">
+        <input type="text" id="cliente-complemento" value="${cliente.complemento}" placeholder="Complemento">
 
         <!-- <select id="cliente-cliente">
           <option value="">Cidade</option>
         </select> -->
-        <input type="text" name="uf" id="cliente-estado" placeholder="Estado" disabled>
-        <input type="text" name="cidade" id="cliente-cidade" placeholder="Cidade" disabled>
+        <input type="text" name="uf" id="cliente-estado" value="${cliente.estado}" placeholder="Estado" disabled>
+        <input type="text" name="cidade" id="cliente-cidade" value="${cliente.cidade}" placeholder="Cidade" disabled>
 
         <!-- <select id="cliente-estado">
           <option value="">Estado</option>
         </select> -->
 
-        <button id="create-customer" class="button-create">Cadastrar</button>
+        <button id="update-customer" class="button-create">Salvar</button>
       </form>
     </div>
   </div>

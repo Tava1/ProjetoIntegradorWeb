@@ -61,6 +61,8 @@
             <th scope="col">Preço UN</th>
             <th scope="col">Categoria</th>
             <th scope="col">Quantide em estoque</th>
+            <th scope="col">Alterar</th>
+            <th scope="col">Deletar</th>
           </tr>
         </thead>
 
@@ -74,6 +76,15 @@
               <td>${produto.descricao}</td>
               <td>${produto.precoUnitario}</td>
               <td>${produto.categoriaID}</td>
+              <td>0</td>
+              <td>
+                <a href="DetalheProduto?produtoID=${produto.produtoID}">
+                  <i class="fas fa-edit"></i>
+                </a>
+              </td>
+              <td>
+                <i class="fas fa-times"></i>
+              </td>
             </tr>
 
           </c:forEach>
@@ -82,6 +93,8 @@
 
     </div>
   </div>
+  <script src="https://kit.fontawesome.com/6d228377c9.js" crossorigin="anonymous"></script>
+  <script src="./lib/jquery-3.5.1.js"></script>
 </body>
 
 </html>

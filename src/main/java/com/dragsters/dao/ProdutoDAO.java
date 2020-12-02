@@ -231,10 +231,10 @@ public class ProdutoDAO implements IDAO<Produto>{
             ps.setDouble(4, produto.getPrecoUnitario());
             ps.setInt(5, produto.getAtivo());
             ps.setInt(6, produto.getCategoriaID());
-            ps.setInt(8, produto.getUnidadeID());
+            ps.setInt(7, produto.getUnidadeID());
 
             // WHERE
-            ps.setInt(9, produto.getProdutoID());
+            ps.setInt(8, produto.getProdutoID());
             
             int linhasAfetadas = ps.executeUpdate();
             

@@ -71,7 +71,9 @@
               <td>${unidade.cidade}</td>
               <td>${unidade.estado}</td>
               <td>
-                <i class="fas fa-edit"></i>
+                <a href="DetalheUnidade?unidadeID=${unidade.unidadeID}">
+                  <i class="fas fa-edit"></i>
+                </a>
               </td>
               <td>
                 <i class="fas fa-times"></i>

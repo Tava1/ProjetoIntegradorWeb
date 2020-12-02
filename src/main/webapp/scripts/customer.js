@@ -58,8 +58,8 @@ $(document).ready(function () {
 
     $.ajax({
       type: 'PUT',
-      url: '/Dragsters/DetalheCliente',
-      data: parameters,
+      url: '/Dragsters/DetalheCliente' + "?" + parameters,
+      // data: parameters,
       success: function (responseText) {
         console.log(responseText);
       },

@@ -74,7 +74,9 @@
               <td>${cliente.cidade}</td>
               <td>${cliente.estado}</td>
               <td>
-                <i class="fas fa-edit"></i>
+                <a href="DetalheCliente?clienteID=${cliente.clienteID}">
+                  <i class="fas fa-edit"></i>
+                </a>
               </td>
               <td>
                 <i class="fas fa-times"></i>

@@ -46,9 +46,11 @@ $(document).ready(function () {
     const marca = $('#produto-marca').val();
     const modelo = $('#produto-modelo').val();
     const descricao = $('#produto-descricao').val();
-    const precoUnitario = $('#produto-preco-unitario').val();
+    let precoUnitario = $('#produto-preco').val();
     const categoriaID = $('#produto-categoria option:selected').val();
     const unidadeID = $('#produto-unidade option:selected').val();
+
+    precoUnitario = precoUnitario.replace(",", ".");
 
     const parameters = `marca=${marca}&modelo=${modelo}&descricao=${descricao}&precoUnitario=${precoUnitario}&categoriaID=${categoriaID}&unidadeID=${unidadeID}`;
 
@@ -72,18 +74,18 @@ $(document).ready(function () {
     const marca = $('#produto-marca').val();
     const modelo = $('#produto-modelo').val();
     const descricao = $('#produto-descricao').val();
-    const precoUnitario = $('#produto-preco-unitario').val();
+    let precoUnitario = $('#produto-preco').val();
     const categoriaID = $('#produto-categoria option:selected').val();
     const unidadeID = $('#produto-unidade option:selected').val();
 
-    const parameters = `produtoID=${produtoID}&marca=${marca}&modelo=${modelo}&descricao=${descricao}&precoUnitario=${precoUnitario}&categoriaID=${categoriaID}&unidadeID=${unidadeID}`;
+    precoUnitario = precoUnitario.replace(",", ".");
 
-    console.log(parameters);
+    const parameters = `produtoID=${produtoID}&marca=${marca}&modelo=${modelo}&descricao=${descricao}&precoUnitario=${precoUnitario}&categoriaID=${categoriaID}&unidadeID=${unidadeID}`;
 
     $.ajax({
       type: 'PUT',
-      url: '/Dragsters/DetalheProduto',
-      data: parameters,
+      url: '/Dragsters/DetalheProduto' + "?" + parameters,
+      // data: parameters,
       success: function (responseText) {
         console.log(responseText);
       },

@@ -42,10 +42,10 @@
     <div class="creation-data">
       <form method="post" action="">
         <div class="creation-data-inputs">
-          <input type="number" placeholder="ID" disabled>
-          <input id="category-title" name="input-titulo" type="text" placeholder="Titulo">
+          <input type="number" placeholder="ID" value="${categoria.categoriaID}" id="categoria-id" disabled>
+          <input id="categoria-titulo" name="input-titulo" value="${categoria.titulo}" type="text" placeholder="Titulo">
         </div>
-        <button id="create-category" class="button-create">Cadastrar</button>
+        <button id="update-category" class="button-create">Salvar</button>
       </form>
     </div>
   </div>
