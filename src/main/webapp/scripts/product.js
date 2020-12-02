@@ -97,3 +97,21 @@ $(document).ready(function () {
 
 
 });
+
+function deleteProduct(btn) {
+
+  let produtoID = $(btn).val();
+  let parameters = 'produtoID=' + produtoID;
+
+  $.ajax({
+    type: 'POST',
+    url: '/Dragsters/ProdutoController',
+    data: parameters,
+    success: function (responseText) {
+      location.reload();
+    },
+    fail: function () {
+      alert('Nao Foi!')
+    }
+  })
+}

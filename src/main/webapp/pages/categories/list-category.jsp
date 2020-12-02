@@ -48,7 +48,9 @@
                 </a>
               </td>
               <td>
-                <i class="fas fa-times"></i>
+                <button onClick="deleteCategory(this)" id="delete-category" value=${categoria.categoriaID}>
+                  <i class="fas fa-times"></i>
+                </button>
               </td>
             </tr>
           </c:forEach>

@@ -48,3 +48,21 @@ $(document).ready(function () {
   })
 
 });
+
+function deleteCategory(btn) {
+
+  let categoriaID = $(btn).val();
+  let parameters = 'categoriaID=' + categoriaID;
+
+  $.ajax({
+    type: 'POST',
+    url: '/Dragsters/CategoriaProdutoController',
+    data: parameters,
+    success: function (responseText) {
+      location.reload();
+    },
+    fail: function () {
+      alert('Nao Foi!')
+    }
+  })
+}

@@ -29,5 +29,36 @@ public class UnidadeController extends HttpServlet {
         RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/branches/list-branch.jsp");
         requestDispatcher.forward(request, response);
     }
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        
+        int unidadeID = Integer.parseInt(request.getParameter("unidadeID"));
+        
+        try {
+            if(unidadeDAO.deletar(unidadeID))
+            {
+                ArrayList<Unidade> listaUnidades = unidadeDAO.listar();
+                
+                request.setAttribute("listaUnidades", listaUnidades);
+                response.setContentType("text/html;charset=UTF-8");
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/branches/list-branch.jsp");
+                requestDispatcher.forward(request, response);
+            }
+            else {
+                request.setAttribute("erro", "Ocorreu algum erro ao tentar deletar.");
+                response.setContentType("text/html;charset=UTF-8");
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/error.jsp");
+                requestDispatcher.forward(request, response);
+            }
+        } 
+        catch (Exception e) {
+            request.setAttribute("erro", e.getMessage());
+            response.setContentType("text/html;charset=UTF-8");
+            RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/error.jsp");
+            requestDispatcher.forward(request, response);
+        }
+    }
 
 }

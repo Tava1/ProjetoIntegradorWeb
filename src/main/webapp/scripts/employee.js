@@ -96,3 +96,21 @@ $(document).ready(function () {
   })
 
 });
+
+function deleteEmployee(btn) {
+
+  let funcionarioID = $(btn).val();
+  let parameters = 'funcionarioID=' + funcionarioID;
+
+  $.ajax({
+    type: 'POST',
+    url: '/Dragsters/FuncionarioController',
+    data: parameters,
+    success: function (responseText) {
+      location.reload();
+    },
+    fail: function () {
+      alert('Nao Foi!')
+    }
+  })
+}

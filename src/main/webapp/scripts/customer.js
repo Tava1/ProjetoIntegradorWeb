@@ -71,3 +71,21 @@ $(document).ready(function () {
 
 
 });
+
+function deleteCustomer(btn) {
+
+  let clienteID = $(btn).val();
+  let parameters = 'clienteID=' + clienteID;
+
+  $.ajax({
+    type: 'POST',
+    url: '/Dragsters/ClienteController',
+    data: parameters,
+    success: function (responseText) {
+      location.reload();
+    },
+    fail: function () {
+      alert('Nao Foi!')
+    }
+  })
+}

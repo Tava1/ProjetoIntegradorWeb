@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.dragsters.model.Produto;
+import java.util.ArrayList;
 /**
  *
  * @author Gustavo Santos
@@ -31,26 +32,33 @@ public class ProdutoController extends HttpServlet {
         requestDispatcher.forward(request, response);
     }
     
-    // Atualiza um produto especifico
     @Override
-    protected void doPut(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
         
-        Produto produto = new Produto();
-        
-        produto.setProdutoID(Integer.parseInt(request.getParameter("produtoID")));
-        produto.setMarca(request.getParameter("marca"));
-        produto.setModelo(request.getParameter("modelo"));
-        produto.setDescricao(request.getParameter("descricao"));
-        produto.setPrecoUnitario(Double.parseDouble(request.getParameter("precoUnitario")));
-        produto.setAtivo(Integer.parseInt(request.getParameter("ativo")));
-        produto.setCategoriaID(Integer.parseInt(request.getParameter("categoriaID")));
-        produto.setUnidadeID(Integer.parseInt(request.getParameter("unidadeID")));
+        int produtoID = Integer.parseInt(request.getParameter("produtoID"));
         
         try {
-            produtoDAO.atualizar(produto);
+            if(produtoDAO.deletar(produtoID))
+            {
+                ArrayList<Produto> listaProdutos = produtoDAO.listar();
+                request.setAttribute("listaProdutos", listaProdutos);
+                response.setContentType("text/html;charset=UTF-8");
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/products/list-product.jsp");
+                requestDispatcher.forward(request, response);
+            }
+            else {
+                request.setAttribute("erro", "Ocorreu algum erro ao tentar deletar.");
+                response.setContentType("text/html;charset=UTF-8");
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/error.jsp");
+                requestDispatcher.forward(request, response);
+            }
         } 
         catch (Exception e) {
+            request.setAttribute("erro", e.getMessage());
+            response.setContentType("text/html;charset=UTF-8");
+            RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/error.jsp");
+            requestDispatcher.forward(request, response);
         }
     }
 

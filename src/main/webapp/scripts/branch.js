@@ -53,5 +53,22 @@ $(document).ready(function () {
     })
   })
 
-
 });
+
+function deleteBranch(btn) {
+
+  let unidadeId = $(btn).val();
+  let parameters = 'unidadeID=' + unidadeId;
+
+  $.ajax({
+    type: 'POST',
+    url: '/Dragsters/UnidadeController',
+    data: parameters,
+    success: function (responseText) {
+      location.reload();
+    },
+    fail: function () {
+      alert('Nao Foi!')
+    }
+  })
+}
