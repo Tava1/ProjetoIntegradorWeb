@@ -25,6 +25,7 @@ public class CargoController extends HttpServlet {
             throws ServletException, IOException {
         
         ArrayList<Cargo> listaCargos = cargoDAO.listar();
+        
         request.setAttribute("listaCargos", listaCargos);
         response.setContentType("text/html;charset=UTF-8");
         RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/roles/list-role.jsp");

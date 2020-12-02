@@ -56,17 +56,21 @@
                 </a>
               </td>
               <td>
-                <button onClick="deleteBranch(this)" id="delete-branch" value=${unidade.unidadeID}>
-                  <i class="fas fa-times"></i>
-                </button>
+                <div class="column-delete">
+                  <button onClick="deleteBranch(this)" id="delete-branch" value=${unidade.unidadeID}>
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
               </td>
             </tr>
-
           </c:forEach>
-
         </tbody>
       </table>
 
+    </div>
+
+    <div class="create-new">
+      <a class="button-new" href="CriarUnidade">Novo</a>
     </div>
   </div>
   <script src="https://kit.fontawesome.com/6d228377c9.js" crossorigin="anonymous"></script>
