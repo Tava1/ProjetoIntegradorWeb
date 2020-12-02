@@ -29,5 +29,36 @@ public class FuncionarioController extends HttpServlet {
         RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/employees/list-employee.jsp");
         requestDispatcher.forward(request, response);
     }
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+        
+        int funcionarioID = Integer.parseInt(request.getParameter("funcionarioID"));
+        
+        try {
+            if(funcionarioDAO.deletar(funcionarioID))
+            {
+                ArrayList<Funcionario> listaFuncionarios = funcionarioDAO.listar();
+                request.setAttribute("listaFuncionarios", listaFuncionarios);
+                response.setContentType("text/html;charset=UTF-8");
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/employees/list-employee.jsp");
+                requestDispatcher.forward(request, response);
+            }
+            else {
+                request.setAttribute("erro", "Ocorreu algum erro ao tentar deletar.");
+                response.setContentType("text/html;charset=UTF-8");
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/error.jsp");
+                requestDispatcher.forward(request, response);
+            }
+        } 
+        catch (Exception e) {
+            request.setAttribute("erro", e.getMessage());
+            response.setContentType("text/html;charset=UTF-8");
+            RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/error.jsp");
+            requestDispatcher.forward(request, response);
+        }
+    }
+
 
 }

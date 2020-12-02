@@ -58,7 +58,9 @@
                 </a>
               </td>
               <td>
-                <i class="fas fa-times"></i>
+                <button onClick="deleteCustomer(this)" id="delete-customer" value=${cliente.clienteID}>
+                  <i class="fas fa-times"></i>
+                </button>
               </td>
             </tr>
 
@@ -71,7 +73,7 @@
   </div>
   <script src="https://kit.fontawesome.com/6d228377c9.js" crossorigin="anonymous"></script>
   <script src="./lib/jquery-3.5.1.js"></script>
-
+  <script src="./scripts/customer.js"></script>
 </body>
 
 
