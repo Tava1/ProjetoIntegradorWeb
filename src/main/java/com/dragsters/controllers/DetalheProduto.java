@@ -46,7 +46,8 @@ private ProdutoDAO produtoDAO = new ProdutoDAO();
             produto.setModelo(request.getParameter("modelo"));
             produto.setDescricao(request.getParameter("descricao"));
             produto.setPrecoUnitario(Double.parseDouble(request.getParameter("precoUnitario")));
-            produto.setAtivo(Integer.parseInt(request.getParameter("ativo")));
+            //produto.setAtivo(Integer.parseInt(request.getParameter("ativo")));
+            produto.setAtivo(1);
             produto.setCategoriaID(Integer.parseInt(request.getParameter("categoriaID")));
             produto.setUnidadeID(Integer.parseInt(request.getParameter("unidadeID")));
 

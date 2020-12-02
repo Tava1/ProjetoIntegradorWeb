@@ -96,7 +96,7 @@ public class UnidadeDAO implements IDAO<Unidade>{
 
         try {
             Connection conn = ConexaoDataBase.abrirConexao();
-            ps = conn.prepareStatement("UPDATE Unidade SET Endereco = ?, EnderecoNumero = ?, Cidade = ?, Estado = ?, Titulo = ?, WHERE UnidadeID = ?;");
+            ps = conn.prepareStatement("UPDATE Unidade SET Endereco = ?, EnderecoNumero = ?, Cidade = ?, Estado = ?, Titulo = ? WHERE UnidadeID = ?;");
             
             ps.setString(1, unidade.getEndereco());
             ps.setString(2, unidade.getEnderecoNumero());

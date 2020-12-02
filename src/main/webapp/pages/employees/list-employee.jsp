@@ -68,7 +68,7 @@
 
           <c:forEach var="funcionario" items="${listaFuncionarios}">
             <tr>
-              <th scope="row">${funcionario.cargoID}</th>
+              <th scope="row">${funcionario.funcionarioID}</th>
               <td>${funcionario.nome}</td>
               <td>${funcionario.CPF}</td>
               <td>${funcionario.genero}</td>
@@ -87,7 +87,9 @@
                 </c:choose>
               </td>
               <td>
-                <i class="fas fa-edit"></i>
+                <a href="DetalheFuncionario?funcionarioID=${funcionario.funcionarioID}">
+                  <i class="fas fa-edit"></i>
+                </a>
               </td>
               <td>
                 <i class="fas fa-times"></i>

@@ -42,13 +42,15 @@
     <div class="creation-data">
       <form method="post" action="">
         <div class="creation-data-inputs">
-          <input type="number" placeholder="ID" disabled>
-          <input class="input-60" id="funcionario-nome" type="text" placeholder="Nome">
-          <input class="input-40" id="funcionario-cpf" maxlength="11" type="number" placeholder="CPF">
+          <input type="number" placeholder="ID" value="${funcionario.funcionarioID}" id="funcionario-id" disabled>
+          <input class="input-60" id="funcionario-nome" type="text" value="${funcionario.nome}" placeholder="Nome">
+          <input class="input-40" id="funcionario-cpf" maxlength="11" type="number" value="${funcionario.CPF}"
+            placeholder="CPF">
         </div>
 
         <div class="creation-data-inputs">
-          <input class="input-100" id="funcionario-email" type="email" placeholder="E-mail">
+          <input class="input-100" id="funcionario-email" type="email" value="${funcionario.email}"
+            placeholder="E-mail">
         </div>
         <div class="creation-data-inputs">
           <select class="input-20" id="funcionario-genero">
@@ -58,12 +60,14 @@
             <option value="O">Prefiro não dizer</option>
           </select>
 
-          <input class="input-20" id="funcionario-data-nascimento" type="date" placeholder="Data de Nascimento">
+          <input class="input-20" id="funcionario-data-nascimento" type="date" value="${funcionario.dataNascimento}"
+            placeholder="Data de Nascimento">
         </div>
 
         <div class="creation-data-inputs">
           <label>Escolha uma senha de acesso ao sistema</label>
-          <input class="input-20" id="funcionario-senha" type="password" placeholder="Senha">
+          <input class="input-20" id="funcionario-senha" type="password" value="${funcionario.senha}"
+            placeholder="Senha">
         </div>
 
         <div class="creation-data-inputs">
@@ -74,7 +78,7 @@
           </select>
         </div>
 
-        <button id="create-employee" class="button-create">Cadastrar</button>
+        <button id="update-employee" class="button-create">Salvar</button>
       </form>
     </div>
   </div>

@@ -42,8 +42,8 @@ $(document).ready(function () {
 
     $.ajax({
       type: 'PUT',
-      url: '/Dragsters/DetalheUnidade',
-      data: parameters,
+      url: '/Dragsters/DetalheUnidade' + "?" + parameters,
+      // data: parameters,
       success: function (responseText) {
         console.log(responseText);
       },

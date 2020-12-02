@@ -7,7 +7,6 @@ $(document).ready(function () {
   $('#create-category').click(function () {
 
     const inputTitulo = $('#category-title').val();
-
     const parameters = 'titulo=' + inputTitulo;
 
     console.log(parameters);
@@ -37,8 +36,8 @@ $(document).ready(function () {
 
     $.ajax({
       type: 'PUT',
-      url: '/Dragsters/DetalheCategoria',
-      data: parameters,
+      url: '/Dragsters/DetalheCategoria' + "?" + parameters,
+      // data: parameters,
       success: function (responseText) {
         console.log(responseText);
       },

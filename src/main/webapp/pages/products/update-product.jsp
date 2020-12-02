@@ -42,17 +42,18 @@
     <div class="creation-data">
       <form method="post" action="">
         <div class="creation-data-inputs">
-          <input type="number" placeholder="ID" disabled> 
-          <input class="input-60" id="produto-marca" type="text" placeholder="Marca">
-          <input class="input-40" id="produto-modelo" type="text" placeholder="Modelo">
+          <input type="number" placeholder="ID" id="produto-id" value="${produto.produtoID}" disabled>
+          <input class="input-60" id="produto-marca" value="${produto.marca}" type="text" placeholder="Marca">
+          <input class="input-40" id="produto-modelo" value="${produto.modelo}" type="text" placeholder="Modelo">
         </div>
         <div class="creation-data-inputs">
           <textarea class="input-100" name="" id="produto-descricao" cols="30" rows="10"
-            placeholder="Descrição"></textarea>
+            placeholder="Descrição">${produto.descricao}</textarea>
         </div>
 
         <div class="creation-data-inputs">
-          <input class="input-100" id="produto-preco" type="text" placeholder="Preço P/ Unidade">
+          <input class="input-100" id="produto-preco" type="text" value="${produto.precoUnitario}"
+            placeholder="Preço P/ Unidade">
           <input class="input-100" id="produto-estoque-quantidade" type="number" placeholder="Quantidade de estoque">
         </div>
 
@@ -64,7 +65,7 @@
           </select>
         </div>
 
-        <button id="create-product" class="button-create">Cadastrar</button>
+        <button id="update-product" class="button-create">Salvar</button>
       </form>
     </div>
   </div>

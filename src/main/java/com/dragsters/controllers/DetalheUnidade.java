@@ -46,6 +46,7 @@ private UnidadeDAO unidadeDAO = new UnidadeDAO();
        
         try {
             unidade.setUnidadeID(Integer.parseInt(request.getParameter("unidadeID")));
+            unidade.setTitulo(request.getParameter("titulo"));
             unidade.setEndereco(request.getParameter("endereco"));
             unidade.setEnderecoNumero(request.getParameter("enderecoNumero"));
             unidade.setCidade(request.getParameter("cidade"));

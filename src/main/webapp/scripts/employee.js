@@ -84,8 +84,8 @@ $(document).ready(function () {
 
     $.ajax({
       type: 'PUT',
-      url: '/Dragsters/DetalheFuncionario',
-      data: parameters,
+      url: '/Dragsters/DetalheFuncionario' + "?" + parameters,
+      // data: parameters,
       success: function (responseText) {
         console.log(responseText);
       },

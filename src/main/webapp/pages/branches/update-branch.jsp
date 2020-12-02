@@ -29,7 +29,7 @@
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR7S9pKMslch4WjEcuH1FTueBDvu3nL4NTsNg&usqp=CAU"
             alt="avatar">
-        </div>-
+        </div>
       </div>
     </div>
   </header>
@@ -39,19 +39,19 @@
     <p>Cadastro de cliente realizado pela filiar, ainda não sei o que colocar aqui</p>
     <div class="creation-data">
       <form action="" method="post">
-        <input type="number" placeholder="ID" disabled>
+        <input type="number" placeholder="ID" id="unidade-id" value="${unidade.unidadeID}" disabled>
         <select id="unidade-titulo">
           <option value="0">Selecione o titulo da unidade</option>
           <option value="Filial">Filial</option>
           <option value="Matriz">Matriz</option>
         </select>
         <input type="numeber" name="cep" id="cep" placeholder="CEP">
-        <input type="text" name="rua" id="unidade-endereco" placeholder="Endereço">
-        <input type="number" id="unidade-endereco-numero" placeholder="Nº">
-        <input type="text" name="uf" id="unidade-estado" placeholder="Estado" disabled>
-        <input type="text" name="cidade" id="unidade-cidade" placeholder="Cidade" disabled>
+        <input type="text" name="rua" id="unidade-endereco" value="${unidade.endereco}" placeholder="Endereço">
+        <input type="number" id="unidade-endereco-numero" value="${unidade.enderecoNumero}" placeholder="Nº">
+        <input type="text" name="uf" id="unidade-estado" value="${unidade.estado}" placeholder="Estado" disabled>
+        <input type="text" name="cidade" id="unidade-cidade" value="${unidade.cidade}" placeholder="Cidade" disabled>
 
-        <button id="create-branch" class="button-create">Cadastrar</button>
+        <button id="update-branch" class="button-create">Salvar</button>
       </form>
     </div>
   </div>
