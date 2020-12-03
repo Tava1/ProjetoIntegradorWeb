@@ -103,6 +103,9 @@ public class VendaController extends HttpServlet {
             if(PedidoDAO.criar(pedido, listaItensPedido)) {
                 response.getWriter().write(gson.toJson("Venda efetuada com sucesso."));
             }
+            else {
+                response.getWriter().write(gson.toJson("Ocorreu algum erro."));
+            }
         } 
         catch (Exception e) {
         }

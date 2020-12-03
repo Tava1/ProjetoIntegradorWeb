@@ -47,6 +47,7 @@ FOREIGN KEY (CargoID) REFERENCES Cargo (CargoID),
 FOREIGN KEY (UnidadeID) REFERENCES Unidade (UnidadeID)
 );
 
+
 CREATE TABLE Categoria (
 CategoriaID INT PRIMARY KEY AUTO_INCREMENT,
 Titulo VARCHAR(20) NOT NULL
@@ -129,4 +130,5 @@ INSERT INTO Produto(Marca, Modelo, Descricao, PrecoUnitario, Ativo, CategoriaID,
 
 INSERT INTO Funcionario(Nome, CPF, Genero, Email, DataNascimento, Senha, Ativo, CargoID, UnidadeID) VALUES
 ('Gustavo Santos', '12345678911', 'M', 'gustavo@dragsters.com', '1999-10-26', '1234', 1, '1', '1'),
-('Victor Pedrasani', '15948963245', 'M', 'victhor@dragsters.com', '1998-01-02', '6789', 0, '3', '2');
+('Victor Pedrasani', '15948963245', 'M', 'victhor@dragsters.com', '1998-01-02', '6789', 0, '2', '2');
+

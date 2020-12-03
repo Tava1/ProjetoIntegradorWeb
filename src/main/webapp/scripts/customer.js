@@ -28,6 +28,7 @@ $(document).ready(function () {
       url: '/Dragsters/CriarCliente',
       data: parameters,
       success: function (responseText) {
+        alert(responseText);
       },
       fail: function () {
         alert('Nao Foi!')
@@ -61,7 +62,7 @@ $(document).ready(function () {
       url: '/Dragsters/DetalheCliente' + "?" + parameters,
       // data: parameters,
       success: function (responseText) {
-        console.log(responseText);
+        alert(responseText);
       },
       fail: function () {
         alert('Nao Foi!')

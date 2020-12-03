@@ -2,6 +2,7 @@ package com.dragsters.controllers;
 
 import com.dragsters.dao.CargoDAO;
 import com.dragsters.model.Cargo;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -37,14 +38,23 @@ public class DetalheCargo extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        Gson gson = new Gson();
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
         Cargo cargo = new Cargo();
        
         try {
             cargo.setCargoID(Integer.parseInt(request.getParameter("cargoID")));
             cargo.setTitulo(request.getParameter("titulo"));
         
-            cargoDAO.atualizar(cargo);
+            ;
+            
+            if(cargoDAO.atualizar(cargo)) {
+                response.getWriter().write(gson.toJson("Atualização efetuada com sucesso."));
+            }
+            else {
+                response.getWriter().write(gson.toJson("Ocorreu algum erro."));
+            }
         } 
         catch (Exception ex) {
             Logger.getLogger(CargoController.class.getName()).log(Level.SEVERE, null, ex);
