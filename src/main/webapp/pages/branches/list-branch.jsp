@@ -66,7 +66,6 @@
           </c:forEach>
         </tbody>
       </table>
-
     </div>
 
     <div class="create-new">

@@ -16,9 +16,13 @@ $(document).ready(function () {
       type: 'GET',
       url: '/Dragsters/ConsultarClienteCPF',
       data: parameters,
-      success: function (responseText) {
-        console.log(responseText);
-        $('#customer-name').val(responseText);
+      success: function (data) {
+        console.log(data);
+        $('#result-customer-nome').text(data.nome);
+        $('#result-customer-cpf').text(`CPF: ${data.CPF}`);
+        $('#result-customer-endereco').text(`${data.endereco}, ${data.enderecoNumero}`);
+        $('#result-customer-complemento').text(data.complemento);
+        $('#result-customer-cidade').text(`${data.cidade} - ${data.estado}`);
       },
       fail: function () {
         alert('Nao Foi!')
@@ -26,7 +30,6 @@ $(document).ready(function () {
     })
   })
 
-  // Consultar codigo do produto para associá-lo ao Pedido/Venda do cliente 
   $('#get-product').click(function () {
 
     const productID = $('#product-id').val();
@@ -34,27 +37,58 @@ $(document).ready(function () {
     // Parametros de rota
     const parameters = 'productID=' + productID;
 
-    let tableLine = "";
-
     $.ajax({
       type: 'GET',
       url: '/Dragsters/ConsultarProdutoID',
       data: parameters,
       success: function (data) {
 
-        if (data.marca != undefined) {
-          tableLine = `<th id="current-product-id" scope="row">${data.produtoID}</th>
-          <td>${data.marca}</td>
-          <td id="current-model">${data.modelo}</td>
-          <td>${data.descricao}</td>
-          <td id="current-price">${data.precoUnitario}</td>
-          <td>
-            <div onclick="includingItemToCart()" class="add-to-cart">
-              <i class="fas fa-plus-square"></i>
-            </div>  
-          </td>`
+        let productDetail = "";
 
-          $('#order-product-result').html(tableLine);
+        if (data.marca != undefined) {
+          productDetail = `<div class="result-product">
+          <div class="result-product-info">
+            <div class="result-product-image">
+              <span>
+                <i class="fas fa-box-open"></i>
+              </span>
+            </div>
+
+            <div class="result-product-context">
+              <div>
+                <div class="result-product-model">
+                  <span><strong>Modelo:</strong></span>
+                  <span>${data.modelo}</span>
+                </div>
+                <div class="result-product-brand">
+                  <span><strong>Marca:</strong></span>
+                  <span>${data.marca}</span>
+                </div>
+                <div class="result-product-price">
+                  <span><strong>R$</strong> ${data.precoUnitario}</span>
+                </div>
+                <div class="result-product-code">
+                  <span><strong>Código:</strong></span>
+                  <span id="result-product-id">${data.produtoID}</span>
+                </div>
+              </div>
+
+              <div class="result-product-stock">
+                <span><strong>Estoque:</strong></span>
+                <span>18</span>
+              </div>
+            </div>
+            <!-- <input type="number" placeholder="Quantidade"> -->
+          </div>
+
+          <div onclick="includingItemToCart()" class="add-to-cart">
+            <span>
+              <i class="fas fa-plus-square"></i>
+            </span>
+          </div>
+          </div>`
+
+          $('#result-product-info').html(productDetail);
         }
         else {
           alert('Produto não encontrado!')
@@ -66,29 +100,30 @@ $(document).ready(function () {
     })
   })
 
-  let productList = [];
-  const productItems = {};
+  let productItems = [];
 
   $('#proceed-order').click(function () {
-    console.log("Finalizar")
+    let str = {};
+    const productIds = document.querySelectorAll('.cart-product-id')
+    const productQuantities = document.querySelectorAll('.cart-product-quantity')
 
-    getCellValues();
+    productIds.forEach(function (currentValue, currentIndex) {
+      str = { produtoID: currentValue.innerHTML, quantidade: productQuantities[currentIndex].value }
+      productItems.push(str);
+    })
 
-    const parameters = {
-      'customerCPF': $('#customerCPF').text(),
-      'employeeID': $('').text(),
-      'UnityID': $('').text(),
-      'cart': [{
-        id: 1,
-        amount: 12
-      }]
+    const clienteCPF = $('#customer-cpf').val();
 
-    }
+    let parameters = `?clienteCPF=${clienteCPF}`;
+
+    console.log({ produtos: productItems });
 
     $.ajax({
       type: 'POST',
-      url: '/Dragsters/VendaController',
-      data: parameters,
+      url: '/Dragsters/VendaController' + parameters,
+      data: JSON.stringify({ produtos: productItems }),
+      dataType: 'json',
+      contentType: 'application/json',
       success: function (responseText) {
         console.log(responseText);
         $('#customer-name').val(responseText);
@@ -97,60 +132,81 @@ $(document).ready(function () {
         alert('Nao Foi!')
       }
     })
-  })
 
+  })
 
 });
 
-let totalPrice = 0.00;
+var totalPrice = 0.00;
+
 
 function includingItemToCart() {
 
   // detalhes do produto
-  let currentProductID = $('#current-product-id').text();
-  let currentModel = $('#current-model').text();
-  let currentPrice = $('#current-price').text();
+  let currentProductID = $('#result-product-id').text();
 
-  // criando o nó
-  const tbodyCartDetails = document.querySelector('#cart-details');
+  const parameters = 'productID=' + currentProductID;
 
-  const tr = document.createElement('tr');
-  const thID = document.createElement('th');
-  const thModel = document.createElement('th');
-  const thPrice = document.createElement('th');
-  let thAmount = document.createElement('th');
-  thAmount = document.createElement('input');
+  $.ajax({
+    type: 'GET',
+    url: '/Dragsters/ConsultarProdutoID',
+    data: parameters,
+    success: function (data) {
 
-  const id = document.createTextNode(currentProductID)
-  const model = document.createTextNode(currentModel)
-  const price = document.createTextNode(currentPrice)
+      console.log(data);
 
 
-  // Inserindo o detalhe do produto em cada th
-  thID.appendChild(id)
-  thModel.appendChild(model)
-  thPrice.appendChild(price)
+      let html = "";
 
+      if (data.marca != undefined) {
+        html = `<div class="cart-result-product">
+          <div class="cart-result-product-info">
+            <div class="cart-result-product-image">
+              <span>
+                <i class="fas fa-box-open"></i>
+              </span>
+            </div>
+      
+            <div class="cart-result-product-context">
+              <div class="cart-result-product-context-info">
+                <div class="cart-result-product-model">
+                  <span><strong>Modelo:</strong></span>
+                  <span id="cart-product-modelo">${data.modelo}</span>
+                </div>
+                <div class="cart-result-product-brand">
+                  <span><strong>Marca:</strong></span>
+                  <span id="cart-product-marca">${data.marca}</span>
+                </div>
+                <div class="cart-result-product-price">
+                  <span>R$</span>
+                  <span id="cart-product-preco">${data.precoUnitario}</span>
+                </div>
+              </div>
+              <div class="cart-result-product-context-input">
+                <div>
+                  <span>Código</span>
+                  <span class="cart-product-id">${data.produtoID}</span>
+                </div>
+                <input class="cart-product-quantity" type="number" placeholder="Quantidade">
+              </div>
+            </div>
+          </div>
+        </div>`
 
-  tr.appendChild(thID);
-  tr.appendChild(thModel);
-  tr.appendChild(thPrice);
-  tr.appendChild(thAmount)
+        $('#cart-products-result').append(html);
+        totalPrice += data.precoUnitario
+        $('#amount').text(totalPrice)
 
-  // preco total do carrinho de produtos escolhidos
-  totalPrice += parseFloat(currentPrice);
-
-  tbodyCartDetails.appendChild(tr);
-
-
-  console.log(totalPrice)
-}
-
-function getCellValues() {
-  var table = document.getElementById('cart-table');
-  for (var r = 1, n = table.rows.length; r < n; r++) {
-    for (var c = 0, m = table.rows[r].cells.length; c < m; c++) {
-      productItems.ap
+      }
+      else {
+        alert('Produto não encontrado!')
+      }
+    },
+    fail: function () {
+      alert('Nao Foi!')
     }
-  }
+  })
+
+  console.log(totalPrice);
+
 }

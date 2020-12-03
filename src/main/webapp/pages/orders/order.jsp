@@ -15,60 +15,56 @@
   <div id="page-order">
 
     <h2>Venda</h2>
-    <span>Alguma descrição básica desta tela.</span>
+    <span>Realizar venda de produtos</span>
+    <form action="">
+      <div class="container-order">
+        <!-- Buscar Produtos -->
+        <div class="search-products item-a">
+          <div class="search-products-filter">
+            <input id="product-id" type="text" placeholder="Buscar produtos">
+            <button id="get-product">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
 
+          <div id="result-product-info"></div>
+        </div>
 
-    <!-- Buscar o cliente pelo CPF -->
-    <form action="" method="get">
-      <div class="">
-        <input id="customer-cpf" type="number" placeholder="CPF" required>
-        <input id="customer-name" type="text" placeholder="Nome" value="" disabled>
+        <!-- Mostar relação dos produtos no carrinho -->
+        <div class="cart item-c">
+          <h3>Carrinho</h3>
+          <div id="cart-products-result" class="cart-result"></div>
+        </div>
+
+        <div class="item-b search-customer">
+          <input id="customer-cpf" type="number" placeholder="CPF do cliente" required>
+          <button id="get-customer">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+
+        <div class="item-d order-details">
+          <div class="order-details-customer">
+            <h3 id="result-customer-nome"></h3>
+            <span id="result-customer-cpf"></span>
+            <span id="result-customer-endereco"></span>
+            <span id="result-customer-complemento"></span>
+            <span id="result-customer-cidade"></span>
+          </div>
+          <div class="order-details-cart">
+            <h3>Orçamento</h3>
+            <div class="order-details-cart-amount">
+              <span>Total:</span>
+              <span id="amount"></span>
+            </div>
+          </div>
+        </div>
       </div>
-      <button id="get-customer" class="button-search">Buscar</button>
+      <div class="process-order">
+        <button id="proceed-order" class="button-search">Finalizar</button>
+      </div>
     </form>
 
-    <!-- Buscar os produtos pelo CPF -->
-    <form action="" method="get">
-      <input id="product-id" type="number" placeholder="Código">
-      <button id="get-product" class="button-search">Buscar</button>
-    </form>
-
-    <div class="result-table">
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Marca</th>
-            <th scope="col">Modelo</th>
-            <th scope="col">Descrição</th>
-            <th scope="col">Preço UN</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="order-product-result"></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Carrinho de produtos -->
-
-    <div class="cart">
-      <table id="cart-table">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Modelo</th>
-            <th scope="col">Preço UN</th>
-            <th scope="col">Quantidade</th>
-          </tr>
-        </thead>
-        <tbody id="cart-details">
-        </tbody>
-      </table>
-    </div>
-
-    <button id="proceed-order" class="button-search">Finalizar</button>
 
   </div>
   <script src="https://kit.fontawesome.com/6d228377c9.js" crossorigin="anonymous"></script>

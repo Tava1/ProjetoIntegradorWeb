@@ -2,6 +2,7 @@ package com.dragsters.controllers;
 
 import com.dragsters.dao.ClienteDAO;
 import com.dragsters.model.Cliente;
+import com.google.gson.Gson;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ConsultarClienteCPF", urlPatterns = "/ConsultarClienteCPF")
 public class ConsultarClienteCPF extends HttpServlet {
 
+    private Gson gson = new Gson();
     private ClienteDAO clienteDAO = new ClienteDAO();
     
     @Override
@@ -26,9 +28,11 @@ public class ConsultarClienteCPF extends HttpServlet {
         
         Cliente cliente = clienteDAO.listarClientesCPF(CPF);
         
-        request.setAttribute("cliente", cliente);
-
-        response.setContentType("text/plain");
-        response.getWriter().write(cliente.getNome());
+        String employeeJsonString = this.gson.toJson(cliente);
+        
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        
+        response.getWriter().write(employeeJsonString);
     }
 }

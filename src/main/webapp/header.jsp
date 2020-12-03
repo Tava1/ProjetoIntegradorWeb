@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <header id="topbar">
   <div class="wrapper">
     <a href="/Dragsters/">
