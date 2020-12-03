@@ -52,7 +52,11 @@
   margin-right: 1em;
 }
 
-#topbar .user-information strong {
+#topbar .user-information a {
+  color: #FFFFFF;
+}
+
+#topbar .user-information a strong {
   display: block;
 }
 

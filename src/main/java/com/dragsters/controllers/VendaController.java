@@ -2,23 +2,20 @@ package com.dragsters.controllers;
 
 import com.dragsters.dao.ClienteDAO;
 import com.dragsters.dao.PedidoDAO;
+import com.dragsters.dao.ProdutoDAO;
 import com.dragsters.model.Cliente;
 import com.dragsters.model.ItemPedido;
 import com.dragsters.model.Pedido;
+import com.dragsters.model.Produto;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -45,7 +42,6 @@ public class VendaController extends HttpServlet {
         
         StringBuilder sb = new StringBuilder();
         String line = null;
-        ItemPedido itemPedido = new ItemPedido();
         ArrayList<ItemPedido> listaItensPedido = new ArrayList<>();
         Gson gson = new Gson();
         response.setContentType("application/json");
@@ -61,6 +57,7 @@ public class VendaController extends HttpServlet {
             JSONArray arr = json.getJSONArray("produtos");
             
             for (int i = 0; i < arr.length(); i++) {
+                ItemPedido itemPedido = new ItemPedido();
                 String produtoID = arr.getJSONObject(i).getString("produtoID");
                 String quantidade = arr.getJSONObject(i).getString("quantidade");
                 if (produtoID.isEmpty() || quantidade.isEmpty()) {
@@ -76,6 +73,17 @@ public class VendaController extends HttpServlet {
             response.getWriter().write(gson.toJson(e.getMessage()));
         }
         
+        
+        double totalVenda = 0.0;
+        
+        ProdutoDAO produtoDAO = new ProdutoDAO();
+        
+        for (ItemPedido item : listaItensPedido) {
+            item.getQuantidade();
+            Produto p = produtoDAO.buscarProduto(item.getProdutoID());
+            totalVenda += p.getPrecoUnitario() * item.getQuantidade();
+        }
+        
         // Cliente
         String CPF = request.getParameter("clienteCPF");
         if(CPF.isEmpty()) {
@@ -86,6 +94,7 @@ public class VendaController extends HttpServlet {
         
         Pedido pedido = new Pedido();
         
+        pedido.setTotal(totalVenda);
         pedido.setClienteID(cliente.getClienteID());
         pedido.setFuncionarioID(1);
         pedido.setUnidadeID(1);
