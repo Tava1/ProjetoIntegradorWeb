@@ -28,7 +28,7 @@ public class ProdutoController extends HttpServlet {
         
         request.setAttribute("listaProdutos", listaProdutos);
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/products/list-product.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/pages/products/list-product.jsp");
         requestDispatcher.forward(request, response);
     }
     
@@ -44,7 +44,7 @@ public class ProdutoController extends HttpServlet {
                 ArrayList<Produto> listaProdutos = produtoDAO.listar();
                 request.setAttribute("listaProdutos", listaProdutos);
                 response.setContentType("text/html;charset=UTF-8");
-                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/products/list-product.jsp");
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/pages/products/list-product.jsp");
                 requestDispatcher.forward(request, response);
             }
             else {

@@ -23,7 +23,7 @@ public class CriarCategoriaProduto extends HttpServlet {
             throws ServletException, IOException {
         
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/categories/create-category.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/admin/categories/create-category.jsp");
         requestDispatcher.forward(request, response);
     }
     

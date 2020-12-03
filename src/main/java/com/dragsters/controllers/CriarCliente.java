@@ -25,7 +25,7 @@ public class CriarCliente extends HttpServlet {
             throws ServletException, IOException {
         
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/customers/create-customer.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/pages/customers/create-customer.jsp");
         requestDispatcher.forward(request, response);
     }
     

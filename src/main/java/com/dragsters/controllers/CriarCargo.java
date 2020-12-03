@@ -24,7 +24,7 @@ public class CriarCargo extends HttpServlet {
             throws ServletException, IOException {
         
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/roles/create-role.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/admin/roles/create-role.jsp");
         requestDispatcher.forward(request, response);
     }
     

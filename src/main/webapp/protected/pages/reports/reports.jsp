@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <%@include file="../../header.jsp" %>
+  <%@include file="../header.jsp" %>
 
   <h2>Manutenção de produto</h2>
   <div class="midle-square">

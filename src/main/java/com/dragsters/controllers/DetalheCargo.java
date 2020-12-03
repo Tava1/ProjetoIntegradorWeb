@@ -30,7 +30,7 @@ public class DetalheCargo extends HttpServlet {
         
         request.setAttribute("cargo", cargo);
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/roles/update-role.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/admin/roles/update-role.jsp");
         requestDispatcher.forward(request, response);
     }
 

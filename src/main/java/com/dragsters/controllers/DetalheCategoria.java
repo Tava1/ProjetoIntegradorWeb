@@ -29,7 +29,7 @@ public class DetalheCategoria extends HttpServlet {
         
         request.setAttribute("categoria", categoria);
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/categories/update-category.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/admin/categories/update-category.jsp");
         requestDispatcher.forward(request, response);
     }
 

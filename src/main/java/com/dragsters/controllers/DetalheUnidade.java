@@ -34,7 +34,7 @@ private UnidadeDAO unidadeDAO = new UnidadeDAO();
         
         request.setAttribute("unidade", unidade);
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/branches/update-branch.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/admin/branches/update-branch.jsp");
         requestDispatcher.forward(request, response);
     }
 

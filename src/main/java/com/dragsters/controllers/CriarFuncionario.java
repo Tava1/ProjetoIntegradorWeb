@@ -26,7 +26,7 @@ public class CriarFuncionario extends HttpServlet {
             throws ServletException, IOException {
         
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/employees/create-employee.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/admin/employees/create-employee.jsp");
         requestDispatcher.forward(request, response);
     }
     

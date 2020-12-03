@@ -35,7 +35,7 @@ public class DetalheCliente extends HttpServlet {
         
         request.setAttribute("cliente", cliente);
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/customers/update-customer.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/pages/customers/update-customer.jsp");
         requestDispatcher.forward(request, response);
     }
 

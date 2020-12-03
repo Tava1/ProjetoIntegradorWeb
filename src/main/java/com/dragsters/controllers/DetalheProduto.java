@@ -30,7 +30,7 @@ private ProdutoDAO produtoDAO = new ProdutoDAO();
         
         request.setAttribute("produto", produto);
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/products/update-product.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/pages/products/update-product.jsp");
         requestDispatcher.forward(request, response);
     }
 

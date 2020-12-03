@@ -32,7 +32,7 @@ public class ClienteController extends HttpServlet {
         
         request.setAttribute("listaClientes", listaClientes);
         request.setCharacterEncoding("UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/customers/list-customer.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/pages/customers/list-customer.jsp");
         requestDispatcher.forward(request, response);
     }
     
@@ -48,7 +48,7 @@ public class ClienteController extends HttpServlet {
                 ArrayList<Cliente> listaClientes = clienteDAO.listar();
                 request.setAttribute("listaClientes", listaClientes);
                 request.setCharacterEncoding("UTF-8");
-                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/customers/list-customer.jsp");
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/pages/customers/list-customer.jsp");
                 requestDispatcher.forward(request, response);
             }
             else {

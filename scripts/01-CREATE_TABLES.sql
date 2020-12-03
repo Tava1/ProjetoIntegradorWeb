@@ -97,6 +97,7 @@ FOREIGN KEY (ProdutoID) REFERENCES Produto (ProdutoID)
 
 INSERT INTO Cargo(Titulo) VALUES
 ('Admin'),
+('Gerente'),
 ('Supervisor'),
 ('Diretoria'),
 ('Produtos Global'),

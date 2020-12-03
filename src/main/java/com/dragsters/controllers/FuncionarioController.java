@@ -26,7 +26,7 @@ public class FuncionarioController extends HttpServlet {
         
         request.setAttribute("listaFuncionarios", listaFuncionarios);
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/employees/list-employee.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/admin/employees/list-employee.jsp");
         requestDispatcher.forward(request, response);
     }
     
@@ -42,7 +42,7 @@ public class FuncionarioController extends HttpServlet {
                 ArrayList<Funcionario> listaFuncionarios = funcionarioDAO.listar();
                 request.setAttribute("listaFuncionarios", listaFuncionarios);
                 response.setContentType("text/html;charset=UTF-8");
-                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/employees/list-employee.jsp");
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/admin/employees/list-employee.jsp");
                 requestDispatcher.forward(request, response);
             }
             else {
