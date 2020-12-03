@@ -125,14 +125,19 @@ $(document).ready(function () {
       dataType: 'json',
       contentType: 'application/json',
       success: function (responseText) {
-        console.log(responseText);
+        alert(responseText);
         $('#customer-name').val(responseText);
       },
-      fail: function () {
+      error: function (responseText) {
+        alert(responseText);
+      },
+      fail: function (text) {
+        console.log(text);
         alert('Nao Foi!')
       }
     })
 
+    productItems = [];
   })
 
 });
