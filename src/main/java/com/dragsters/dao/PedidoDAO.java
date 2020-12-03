@@ -55,17 +55,19 @@ public class PedidoDAO {
                 if (linhasAfetadasItemPedido <= 0) {
                     return false;
                 }
-                                
-                ps = conn.prepareStatement("UPDATE Estoque SET Quantidade = ? WHERE = ?;");
-                ps.setInt(1, - item.getQuantidade());
-                // WHERE
-                ps.setInt(2, item.getProdutoID());
                 
-                int linhasAfetadasEstoque = ps.executeUpdate();
+                // TODO: Estoque
                 
-                if (linhasAfetadasEstoque <= 0) {
-                    return false;
-                }
+//                ps = conn.prepareStatement("UPDATE Estoque SET Quantidade = ? WHERE = ?;");
+//                ps.setInt(1, - item.getQuantidade());
+//                // WHERE
+//                ps.setInt(2, item.getProdutoID());
+//                
+//                int linhasAfetadasEstoque = ps.executeUpdate();
+//                
+//                if (linhasAfetadasEstoque <= 0) {
+//                    return false;
+//                }
             }
         } 
         catch (Exception e) {

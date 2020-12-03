@@ -44,7 +44,11 @@ public class AutorizacaoFilter implements Filter {
         Funcionario usuario = (Funcionario) sessao.getAttribute("usuario");
         String url = httpServletRequest.getRequestURI();
         if (url.contains("/admin/") && !usuario.isAdmin()) {
-            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/acessoNaoAutorizado.jsp");
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/access-denied.jsp");
+        }
+        
+        if (url.contains("/gerente/") && usuario.getCargoID() != 2 ) {
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/access-denied.jsp");
         }
         
         

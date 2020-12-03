@@ -5,6 +5,7 @@ import com.dragsters.dao.PedidoDAO;
 import com.dragsters.model.Cliente;
 import com.dragsters.model.ItemPedido;
 import com.dragsters.model.Pedido;
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -46,7 +47,9 @@ public class VendaController extends HttpServlet {
         String line = null;
         ItemPedido itemPedido = new ItemPedido();
         ArrayList<ItemPedido> listaItensPedido = new ArrayList<>();
-        
+        Gson gson = new Gson();
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
         try {
             // Obter o JSON com a relação de produtos x quantidades para finalizar a venda.
             BufferedReader reader = request.getReader();
@@ -60,22 +63,25 @@ public class VendaController extends HttpServlet {
             for (int i = 0; i < arr.length(); i++) {
                 String produtoID = arr.getJSONObject(i).getString("produtoID");
                 String quantidade = arr.getJSONObject(i).getString("quantidade");
-                
+                if (produtoID.isEmpty() || quantidade.isEmpty()) {
+                    response.getWriter().write(gson.toJson("É Necessário determinar a quantidade para todos os produtos na lista."));
+                    return;
+                }
                 itemPedido.setProdutoID(Integer.parseInt(produtoID));
                 itemPedido.setQuantidade(Integer.parseInt(quantidade));
                 listaItensPedido.add(itemPedido);
             }
-            
         } 
         catch (Exception e) {
-            return;
+            response.getWriter().write(gson.toJson(e.getMessage()));
         }
-        
-        HttpSession sessao = request.getSession();
-        
         
         // Cliente
         String CPF = request.getParameter("clienteCPF");
+        if(CPF.isEmpty()) {
+            response.getWriter().write(gson.toJson("É necessário preencher o campo CPF do cliente."));
+            return;
+        }
         Cliente cliente = clienteDAO.listarClientesCPF(CPF);
         
         Pedido pedido = new Pedido();
@@ -85,7 +91,9 @@ public class VendaController extends HttpServlet {
         pedido.setUnidadeID(1);
 
         try {
-            PedidoDAO.criar(pedido, listaItensPedido);
+            if(PedidoDAO.criar(pedido, listaItensPedido)) {
+                response.getWriter().write(gson.toJson("Venda efetuada com sucesso."));
+            }
         } 
         catch (Exception e) {
         }

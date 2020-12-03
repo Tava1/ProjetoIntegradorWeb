@@ -112,6 +112,14 @@
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>com.dragsters.controllers.LogoutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RelatorioController</servlet-name>
+        <servlet-class>com.dragsters.controllers.RelatorioController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DetalheRelatorio</servlet-name>
+        <servlet-class>com.dragsters.controllers.DetalheRelatorio</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CargoController</servlet-name>
         <url-pattern>/CargoController</url-pattern>
@@ -215,6 +223,14 @@
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/LogoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioController</servlet-name>
+        <url-pattern>/RelatorioController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DetalheRelatorio</servlet-name>
+        <url-pattern>/DetalheRelatorio</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

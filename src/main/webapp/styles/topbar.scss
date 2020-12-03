@@ -42,8 +42,12 @@
     color: $white-color;
     margin-right: 1em;
 
-    strong {
-      display: block;
+    a {
+      color: $white-color;
+
+      strong {
+        display: block;
+      }
     }
 
     span {
