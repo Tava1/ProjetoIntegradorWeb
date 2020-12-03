@@ -3,6 +3,7 @@ package com.dragsters.dao;
 import com.dragsters.model.ItemPedido;
 import com.dragsters.model.Pedido;
 import com.dragsters.utils.ConexaoDataBase;
+import java.util.Date;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,14 +17,14 @@ import java.util.ArrayList;
 public class PedidoDAO {
     public static boolean criar(Pedido pedido, ArrayList<ItemPedido> itensPedido) {
         PreparedStatement ps = null;
-        
+        Date date = new Date();
         try {
             Connection conn = ConexaoDataBase.abrirConexao();
             ps = conn.prepareStatement("INSERT INTO Pedido(Total, DataPedido, VendaConcluida, ClienteID, FuncionarioID, UnidadeID) VALUES (?, ?, ?, ?, ?, ?);", Statement.RETURN_GENERATED_KEYS);
             
             ps.setDouble(1, pedido.getTotal());
-            ps.setDate(2, pedido.getDataPedido());
-            ps.setInt(3, pedido.getVendaConcluida());
+            ps.setDate(2, new java.sql.Date(date.getTime()));
+            ps.setInt(3, 1);
             ps.setInt(4, pedido.getClienteID());
             ps.setInt(5, pedido.getFuncionarioID());
             ps.setInt(6, pedido.getUnidadeID());

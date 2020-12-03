@@ -5,13 +5,20 @@ import com.dragsters.dao.PedidoDAO;
 import com.dragsters.model.Cliente;
 import com.dragsters.model.ItemPedido;
 import com.dragsters.model.Pedido;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  *
@@ -34,26 +41,44 @@ public class VendaController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // Cliente
-        String CPF = request.getParameter("cpf");
-        Cliente cliente = clienteDAO.listarClientesCPF(CPF);
-        
-        
+        StringBuilder sb = new StringBuilder();
+        String line = null;
+        ItemPedido itemPedido = new ItemPedido();
         ArrayList<ItemPedido> listaItensPedido = new ArrayList<>();
+        
+        try {
+            // Obter o JSON com a relação de produtos x quantidades para finalizar a venda.
+            BufferedReader reader = request.getReader();
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+            }
+            
+            JSONObject json = new JSONObject(sb.toString());
+            JSONArray arr = json.getJSONArray("produtos");
+            
+            for (int i = 0; i < arr.length(); i++) {
+                String produtoID = arr.getJSONObject(i).getString("produtoID");
+                String quantidade = arr.getJSONObject(i).getString("quantidade");
+                
+                itemPedido.setProdutoID(Integer.parseInt(produtoID));
+                itemPedido.setQuantidade(Integer.parseInt(quantidade));
+                listaItensPedido.add(itemPedido);
+            }
+            
+        } 
+        catch (Exception e) {
+            return;
+        }
+        
+        // Cliente
+        String CPF = request.getParameter("clienteCPF");
+        Cliente cliente = clienteDAO.listarClientesCPF(CPF);
         
         Pedido pedido = new Pedido();
         
         pedido.setClienteID(cliente.getClienteID());
-        
-//        for (:) {
-//            
-//            ItemPedido itemPedido = new ItemPedido();
-//
-//            itemPedido.setProdutoID(Integer.parseInt(request.getParameter("produtoID")));
-//            itemPedido.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
-//            
-//            listaItensPedido.add(itemPedido);
-//        }
+        pedido.setFuncionarioID(1);
+        pedido.setUnidadeID(1);
 
         try {
             PedidoDAO.criar(pedido, listaItensPedido);

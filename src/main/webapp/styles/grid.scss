@@ -2,10 +2,32 @@
     display: grid;
     grid-template-columns: repeat(12,1fr);
     grid-template-rows: auto;
-    // grid-gap: 7px;
-
 }
 
 .col-4 {
     grid-column: span 4;
+}
+
+.container-order {
+    display: grid;
+    grid-template-columns: 300px 600px;
+    grid-template-rows: auto;
+    grid-gap: 1em;
+    grid-template-areas: 
+    "products products products customer"
+    "products products products details"
+    "cart cart cart details";
+}
+
+.item-a {
+    grid-area: products;
+}
+.item-b {
+    grid-area: customer;
+}
+.item-c {
+    grid-area: cart;
+}
+.item-d {
+    grid-area: details;
 }

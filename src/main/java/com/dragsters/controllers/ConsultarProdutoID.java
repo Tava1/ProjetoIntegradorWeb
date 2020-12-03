@@ -29,11 +29,11 @@ public class ConsultarProdutoID extends HttpServlet {
         
         Produto produto = produtoDAO.buscarProduto(produtoID);
         
-        String employeeJsonString = this.gson.toJson(produto);
+        String jsonString = this.gson.toJson(produto);
         
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         
-        response.getWriter().write(employeeJsonString);
+        response.getWriter().write(jsonString);
     }
 }

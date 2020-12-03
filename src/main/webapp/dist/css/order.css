@@ -1,6 +1,262 @@
-.add-to-cart {
-  width: 16px;
-  height: 17px;
-  cursor: pointer;
+#page-order {
+  max-width: 1366px;
+  margin: 2em auto;
+}
+
+#page-order h1 {
+  color: #7FC9A8;
+  margin-bottom: 1em;
+}
+
+#page-order form .search-products {
+  background: #E1FBEF;
+  border-radius: 7px;
+  max-height: 230px;
+}
+
+#page-order form .search-products .search-products-filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#page-order form .search-products .search-products-filter input {
+  width: 100%;
+  margin: 0.7em;
+}
+
+#page-order form .search-products .search-products-filter button {
+  margin: 0.7em 0.7em 0.7em 0;
+}
+
+#page-order form .search-products .result-table {
+  margin: 0.7em;
+}
+
+#page-order form .search-products .result-product {
+  border-radius: 7px;
+  background: #FFFFFF;
+  height: 135px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1em;
+  margin: 0.7em;
+}
+
+#page-order form .search-products .result-product .result-product-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#page-order form .search-products .result-product .result-product-info .result-product-image {
+  width: 100px;
+  height: 100px;
+  background: #7FC9A8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 7px;
+  margin-right: 1em;
+}
+
+#page-order form .search-products .result-product .result-product-info .result-product-image span {
+  font-size: 4em;
+  color: #FFFFFF;
+}
+
+#page-order form .search-products .result-product .result-product-info .result-product-context {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#page-order form .search-products .result-product .add-to-cart span {
+  font-size: 2em;
+  color: #7FC9A8;
+}
+
+#page-order form .cart {
+  background: #E1FBEF;
+  border-radius: 7px;
+  padding: 0.7em;
+  height: 440px;
+}
+
+#page-order form .cart .cart-result .cart-result-product {
+  border-radius: 7px;
+  background: #FFFFFF;
+  padding: 1em;
+  margin: 0.7em;
+}
+
+#page-order form .cart .cart-result .cart-result-product .cart-result-product-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#page-order form .cart .cart-result .cart-result-product .cart-result-product-info .cart-result-product-image {
+  width: 60px;
+  height: 60px;
+  background: #7FC9A8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 7px;
+  margin-right: 1em;
+}
+
+#page-order form .cart .cart-result .cart-result-product .cart-result-product-info .cart-result-product-image span {
+  font-size: 2em;
+  color: #FFFFFF;
+}
+
+#page-order form .cart .cart-result .cart-result-product .cart-result-product-info .cart-result-product-context {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#page-order form .cart .cart-result .cart-result-product .cart-result-product-info .cart-result-product-context .cart-result-product-context-input input {
+  width: 145px;
+  background: #E1FBEF;
+}
+
+#page-order form .search-customer {
+  background: #E1FBEF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-radius: 7px;
+}
+
+#page-order form .search-customer input {
+  width: 100%;
+  margin: 0.7em;
+}
+
+#page-order form .search-customer button {
+  margin: 0.7em 0.7em 0.7em 0;
+}
+
+#page-order form .order-details {
+  background: #E1FBEF;
+  height: 600px;
+  border-radius: 7px;
+  padding: 0.7em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #7FC9A8;
+}
+
+#page-order form .order-details .order-details-customer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#page-order form .order-details .order-details-customer h3 {
+  margin-bottom: 0.7em;
+}
+
+#page-order form .order-details .order-details-customer span {
+  margin-bottom: 0.7em;
+}
+
+#page-order form .order-details .order-details-cart {
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#page-order form .order-details .order-details-cart h3 {
+  font-size: 1.25em;
+}
+
+#page-order form .order-details .order-details-cart .order-details-cart-amount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+#page-order .process-order {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+#page-order .process-order button {
+  margin-top: 1em;
 }
 /*# sourceMappingURL=order.css.map */

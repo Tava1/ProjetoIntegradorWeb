@@ -10,4 +10,43 @@
 .col-4 {
   grid-column: span 4;
 }
+
+.container-order {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 300px 600px;
+      grid-template-columns: 300px 600px;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  grid-gap: 1em;
+      grid-template-areas: "products products products customer" "products products products details" "cart cart cart details";
+}
+
+.item-a {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: products;
+}
+
+.item-b {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: customer;
+}
+
+.item-c {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: cart;
+}
+
+.item-d {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 4;
+  grid-area: details;
+}
 /*# sourceMappingURL=grid.css.map */

@@ -1,8 +1,204 @@
-.add-to-cart {
-  width: 16px;
-  height: 17px;
-  cursor: pointer;
-  
-  i {
+@import './variables.scss';
+
+#page-order {
+  max-width: 1366px;
+  margin: 2em auto;
+
+  h1 {
+    color: $primary-color;
+    margin-bottom: 1em;
+  }
+
+  span {
+
+  }
+
+  form {
+    .search-products {
+      background: $secondary-color;
+      border-radius: 7px;
+      max-height: 230px;
+
+      .search-products-filter {
+        display: flex;
+        justify-content: space-between;
+
+        input {
+          width: 100%;
+          margin: 0.7em;
+        }
+        button {
+          margin: 0.7em 0.7em 0.7em 0;
+        }
+      }
+
+      .result-table {
+        margin: 0.7em;
+      }
+
+      .result-product {
+        border-radius: 7px;
+        background: $white-color;
+        height: 135px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em;
+        margin: 0.7em;
+        .result-product-info {
+          display: flex;
+
+          .result-product-image {
+            width: 100px;
+            height: 100px;
+            background: $primary-color;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            border-radius: 7px;
+            margin-right: 1em;
+
+            span {
+              font-size: 4em;
+              color: $white-color;
+            }
+          }
+
+          .result-product-context {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+        }
+
+
+        .add-to-cart {
+          span {
+            font-size: 2em;
+            color: $primary-color;
+          }
+        }
+      }
+    }
+
+    .cart {
+      background: $secondary-color;
+      border-radius: 7px;
+      padding: 0.7em;
+      height: 440px;
+
+      .cart-result {
+
+        .cart-result-product {
+          border-radius: 7px;
+          background: $white-color;
+          padding: 1em;
+          margin: 0.7em;
+          
+          .cart-result-product-info {
+            display: flex;
+            align-items: center;
+            
+            .cart-result-product-image {
+              width: 60px;
+              height: 60px;
+              background: $primary-color;
+              display: flex;
+              justify-content:center;
+              align-items: center;
+              border-radius: 7px;
+              margin-right: 1em;
+              
+              span {
+                font-size: 2em;
+                color: $white-color;
+              }
+            }
+            .cart-result-product-context {
+              width: 100%;
+              display: flex;
+              justify-content:space-between;
+              align-items: center;
+              .cart-result-product-context-info {
+
+              }
+              .cart-result-product-context-input {
+                input {
+                  width: 145px;
+                  background: $secondary-color;
+                } 
+              }
+
+            }
+          }
+        }
+      }
+    }
+
+    .search-customer {
+      background: $secondary-color;
+      display: flex;
+      justify-content: space-between;
+      border-radius: 7px;
+
+      input {
+        width: 100%;
+        margin: 0.7em;
+      }
+      button {
+        margin: 0.7em 0.7em 0.7em 0;
+      }
+    }
+
+    .order-details {
+      background: $secondary-color;
+      height: 600px;
+      border-radius: 7px;
+      padding: 0.7em;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: $primary-color;
+      .order-details-customer {
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+          margin-bottom: 0.7em;
+        }
+        span {
+          margin-bottom: 0.7em;
+        }
+      }
+      .order-details-cart {
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h3 {
+          font-size: 1.25em;
+        }
+
+        .order-details-cart-amount {
+          display: flex;
+          justify-content: space-between;
+          font-weight: bold;
+          font-size: 1.25em;
+        }
+      }
+    }
+  }
+
+  .process-order {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      margin-top: 1em;
+
+    }
   }
 }
