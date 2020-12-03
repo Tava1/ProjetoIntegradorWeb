@@ -25,7 +25,7 @@ public class CriarUnidade extends HttpServlet {
             throws ServletException, IOException {
         
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/branches/create-branch.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/admin/branches/create-branch.jsp");
         requestDispatcher.forward(request, response);
     }
     

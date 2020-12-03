@@ -25,7 +25,7 @@ public class CategoriaProdutoController extends HttpServlet {
         
         request.setAttribute("listaCategorias", listaCategorias);
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/categories/list-category.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/admin/categories/list-category.jsp");
         requestDispatcher.forward(request, response);
     }
     
@@ -41,7 +41,7 @@ public class CategoriaProdutoController extends HttpServlet {
                 ArrayList<Categoria> listaCategoria = categoriaDAO.listar();
                 request.setAttribute("listaCategoria", listaCategoria);
                 response.setContentType("text/html;charset=UTF-8");
-                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/categories/list-category.jsp");
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/admin/categories/list-category.jsp");
                 requestDispatcher.forward(request, response);
             }
             else {

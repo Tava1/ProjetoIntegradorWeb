@@ -31,7 +31,7 @@ public class DetalheFuncionario extends HttpServlet {
         
         request.setAttribute("funcionario", funcionario);
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/employees/update-employee.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/admin/employees/update-employee.jsp");
         requestDispatcher.forward(request, response);
     }
 

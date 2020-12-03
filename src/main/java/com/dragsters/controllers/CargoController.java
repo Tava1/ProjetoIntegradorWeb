@@ -28,7 +28,7 @@ public class CargoController extends HttpServlet {
         
         request.setAttribute("listaCargos", listaCargos);
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/roles/list-role.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/admin/roles/list-role.jsp");
         requestDispatcher.forward(request, response);
         
     }
@@ -45,7 +45,7 @@ public class CargoController extends HttpServlet {
                 ArrayList<Cargo> listaCargos = cargoDAO.listar();
                 request.setAttribute("listaCargos", listaCargos);
                 response.setContentType("text/html;charset=UTF-8");
-                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/roles/list-role.jsp");
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/admin/roles/list-role.jsp");
                 requestDispatcher.forward(request, response);
             }
             else {

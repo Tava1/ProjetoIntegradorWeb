@@ -17,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -33,7 +34,7 @@ public class VendaController extends HttpServlet {
             throws ServletException, IOException {
         
         request.setCharacterEncoding("UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/orders/order.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/pages/orders/order.jsp");
         requestDispatcher.forward(request, response);
     }
 
@@ -69,6 +70,9 @@ public class VendaController extends HttpServlet {
         catch (Exception e) {
             return;
         }
+        
+        HttpSession sessao = request.getSession();
+        
         
         // Cliente
         String CPF = request.getParameter("clienteCPF");

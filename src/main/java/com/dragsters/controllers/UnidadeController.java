@@ -26,7 +26,7 @@ public class UnidadeController extends HttpServlet {
         
         request.setAttribute("listaUnidades", listaUnidades);
         response.setContentType("text/html;charset=UTF-8");
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/branches/list-branch.jsp");
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/admin/branches/list-branch.jsp");
         requestDispatcher.forward(request, response);
     }
     
@@ -43,7 +43,7 @@ public class UnidadeController extends HttpServlet {
                 
                 request.setAttribute("listaUnidades", listaUnidades);
                 response.setContentType("text/html;charset=UTF-8");
-                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/pages/branches/list-branch.jsp");
+                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/protected/admin/branches/list-branch.jsp");
                 requestDispatcher.forward(request, response);
             }
             else {

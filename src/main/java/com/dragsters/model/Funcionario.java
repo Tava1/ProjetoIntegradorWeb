@@ -16,4 +16,8 @@ public class Funcionario extends Pessoa {
     private int ativo;
     private int cargoID;
     private int unidadeID;
+    
+    public boolean isAdmin() {
+        return this.cargoID == 1;
+    }
 }

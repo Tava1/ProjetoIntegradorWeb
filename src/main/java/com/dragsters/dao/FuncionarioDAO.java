@@ -305,4 +305,42 @@ public class FuncionarioDAO implements IDAO<Funcionario>{
         return funcionario;
     }
     
+    
+    public Funcionario verificarAcesso(int usuario, String senha) {
+        PreparedStatement ps = null; 
+        ResultSet resultSet = null;
+        Funcionario funcionario = new Funcionario();
+
+        try {
+            Connection conn = ConexaoDataBase.abrirConexao();
+            ps = conn.prepareStatement("SELECT * FROM Funcionario WHERE FuncionarioID = ? AND Senha = ?;");
+            ps.setInt(1, usuario);
+            ps.setString(2, senha);
+            
+            resultSet = ps.executeQuery();
+            
+            if (resultSet.next()) {
+                funcionario.setNome(resultSet.getString("Nome"));
+                funcionario.setFuncionarioID(resultSet.getInt("FuncionarioID"));
+                funcionario.setCargoID(resultSet.getInt("CargoID"));
+            }
+            else {
+                return null;
+            }
+
+        } 
+        catch (Exception e) {
+        }
+        finally {
+            try {
+                if (ps != null) {
+                    ConexaoDataBase.fecharConexao();
+                }
+            } 
+            catch (Exception e) {
+            }
+        }
+        
+        return funcionario;
+    }
 }
