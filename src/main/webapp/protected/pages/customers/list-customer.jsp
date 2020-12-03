@@ -15,7 +15,7 @@
   <%@include file="../../header.jsp" %>
 
   <div id="page-products">
-    <h1>Manutenção de clientes</h1>
+    <h2>Manutenção de clientes</h2>
     <div class="filter">
       <form>
         <div class="filter-inputs">

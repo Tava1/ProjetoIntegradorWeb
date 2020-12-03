@@ -80,7 +80,7 @@
         </c:if>
 
         <c:if test="${sessionScope.usuario.cargoID eq 2}">
-          <a class="col-4" href="">
+          <a class="col-4" href="/Dragsters/RelatorioController">
             <div class="menu-item">
               <i class="fas fa-clipboard"></i>
               <span>RELATORIO</span>
