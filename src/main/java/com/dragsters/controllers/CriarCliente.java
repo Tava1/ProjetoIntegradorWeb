@@ -2,6 +2,7 @@ package com.dragsters.controllers;
 
 import com.dragsters.dao.ClienteDAO;
 import com.dragsters.model.Cliente;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.logging.Level;
@@ -34,6 +35,9 @@ public class CriarCliente extends HttpServlet {
             throws ServletException, IOException {
         
         Cliente cliente = new Cliente();
+        Gson gson = new Gson();
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
         
         try {
 
@@ -50,7 +54,10 @@ public class CriarCliente extends HttpServlet {
             cliente.setCidade(request.getParameter("cidade"));
             cliente.setEstado(request.getParameter("estado"));
         
-            clienteDAO.criar(cliente);
+            if(clienteDAO.criar(cliente)) {
+                response.getWriter().write(gson.toJson("Cadastro efetuado com sucesso."));
+            }
+            
         } 
         catch (Exception ex) {
             Logger.getLogger(CargoController.class.getName()).log(Level.SEVERE, null, ex);

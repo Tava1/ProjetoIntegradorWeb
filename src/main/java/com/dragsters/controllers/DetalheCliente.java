@@ -7,6 +7,7 @@ package com.dragsters.controllers;
 
 import com.dragsters.dao.ClienteDAO;
 import com.dragsters.model.Cliente;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.logging.Level;
@@ -43,6 +44,9 @@ public class DetalheCliente extends HttpServlet {
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        Gson gson = new Gson();
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
         Cliente cliente = new Cliente();
        
         try {
@@ -60,7 +64,13 @@ public class DetalheCliente extends HttpServlet {
             cliente.setCidade(request.getParameter("cidade"));
             cliente.setEstado(request.getParameter("estado"));
         
-            clienteDAO.atualizar(cliente);
+            
+            if(clienteDAO.atualizar(cliente)) {
+                response.getWriter().write(gson.toJson("Atualização efetuada com sucesso."));
+            }
+            else {
+                response.getWriter().write(gson.toJson("Ocorreu algum erro."));
+            }
         } 
         catch (Exception ex) {
             Logger.getLogger(CargoController.class.getName()).log(Level.SEVERE, null, ex);

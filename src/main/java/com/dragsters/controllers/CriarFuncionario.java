@@ -3,6 +3,7 @@ package com.dragsters.controllers;
 
 import com.dragsters.dao.FuncionarioDAO;
 import com.dragsters.model.Funcionario;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.logging.Level;
@@ -34,6 +35,9 @@ public class CriarFuncionario extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        Gson gson = new Gson();
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
         Funcionario funcionario = new Funcionario();
         
         try {
@@ -47,8 +51,13 @@ public class CriarFuncionario extends HttpServlet {
             funcionario.setAtivo(1);
             funcionario.setCargoID(Integer.parseInt(request.getParameter("cargoID")));
             funcionario.setUnidadeID(Integer.parseInt(request.getParameter("unidadeID")));
-        
-            funcionarioDAO.criar(funcionario);
+            
+            if(funcionarioDAO.criar(funcionario)) {
+                response.getWriter().write(gson.toJson("Cadastrado com sucesso."));
+            }
+            else {
+                response.getWriter().write(gson.toJson("Ocorreu algum erro."));
+            }
         } 
         catch (Exception ex) {
             Logger.getLogger(CargoController.class.getName()).log(Level.SEVERE, null, ex);

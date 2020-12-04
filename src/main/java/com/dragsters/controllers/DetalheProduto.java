@@ -2,6 +2,7 @@ package com.dragsters.controllers;
 
 import com.dragsters.dao.ProdutoDAO;
 import com.dragsters.model.Produto;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.logging.Level;
@@ -37,7 +38,9 @@ private ProdutoDAO produtoDAO = new ProdutoDAO();
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        Gson gson = new Gson();
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
         Produto produto = new Produto();
        
         try {
@@ -51,7 +54,12 @@ private ProdutoDAO produtoDAO = new ProdutoDAO();
             produto.setCategoriaID(Integer.parseInt(request.getParameter("categoriaID")));
             produto.setUnidadeID(Integer.parseInt(request.getParameter("unidadeID")));
 
-            produtoDAO.atualizar(produto);
+            if(produtoDAO.atualizar(produto)) {
+                response.getWriter().write(gson.toJson("Atualização efetuada com sucesso."));
+            }
+            else {
+                response.getWriter().write(gson.toJson("Ocorreu algum erro."));
+            }
         } 
         catch (Exception ex) {
             Logger.getLogger(CargoController.class.getName()).log(Level.SEVERE, null, ex);

@@ -2,6 +2,7 @@ package com.dragsters.controllers;
 
 import com.dragsters.dao.ProdutoDAO;
 import com.dragsters.model.Produto;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -30,7 +31,9 @@ public class CriarProduto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        Gson gson = new Gson();
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
         Produto produto = new Produto();
         
         try {
@@ -43,7 +46,12 @@ public class CriarProduto extends HttpServlet {
             produto.setCategoriaID(Integer.parseInt(request.getParameter("categoriaID")));
             produto.setUnidadeID(Integer.parseInt(request.getParameter("unidadeID")));
         
-            produtoDAO.criar(produto);
+            if( produtoDAO.criar(produto)) {
+                response.getWriter().write(gson.toJson("Cadastrado com sucesso."));
+            }
+            else {
+                response.getWriter().write(gson.toJson("Ocorreu algum erro."));
+            }
         } 
         catch (Exception e) {
         }
